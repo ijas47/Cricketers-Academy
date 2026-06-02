@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cricketers Academy · Dubai's cricket academy</title>
+<meta name="description" content="Cricketers Academy by Tellicherry Cricket Club. Dubai's cricket academy. A scroll-story of how serious players are made, ages 6 to 20.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/story.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.css">
+<!-- Add the animation flag before paint so no-JS / reduced-motion visitors
+     always see fully-rendered content (initial hidden states never apply). -->
+<script>
+  (function () {
+    try {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) document.documentElement.classList.add('anim');
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body class="story">
+
+<!-- painted WebGL backdrop (Three.js draws here; CSS gradient is the fallback) -->
+<div id="bg-stage" aria-hidden="true"></div>
+<div class="grade" aria-hidden="true"></div>
+
+<!-- scroll + chapter progress -->
+<div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
+<nav class="rail" id="rail" aria-label="Chapters"></nav>
+
+<!-- NAV -->
+<header class="story-nav" id="nav">
+  <a class="logo" href="Cricketers Academy.html" aria-label="Cricketers Academy home">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="16" cy="16" r="13" fill="#C7E63A"></circle>
+      <path d="M11 4.6C13.1 9 13.9 12.4 13.9 16S13.1 23 11 27.4" stroke="#16160F" stroke-width="1.5" stroke-linecap="round"></path>
+      <g stroke="#16160F" stroke-width="1.2" stroke-linecap="round">
+        <path d="M12.1 7.4l2.4-.7"></path><path d="M12.9 11l2.5-.5"></path><path d="M13.1 14.8l2.6-.3"></path>
+        <path d="M13.1 18.2l2.6.3"></path><path d="M12.8 22l2.5.6"></path><path d="M12.1 25.5l2.4.8"></path>
+      </g>
+    </svg>
+    <span class="logo-text"><span class="logo-main">Cricketers Academy<span class="dot">.</span></span><span class="logo-sub">by Tellicherry Cricket Club</span></span>
+  </a>
+  <nav class="nav-links" id="navLinks" aria-label="Primary">
+    <a class="nav-link active" href="Cricketers Academy.html">Home</a>
+    <a class="nav-link" href="Programs.html">Programs</a>
+    <a class="nav-link" href="Coaches.html">Coaches</a>
+    <a class="nav-link" href="About.html">About</a>
+    <a class="nav-link" href="Contact.html">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <a class="nav-cta" href="Contact.html">Enrol now</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+  </div>
+</header>
+
+<main class="story-main">
+
+  <!-- ===================== CH 00 · HERO ===================== -->
+  <section class="chapter" id="ch-hero"
+           data-chapter data-label="The opening" data-bg="#0B0C0A" data-accent="#C7E63A">
+    <div class="swrap">
+      <div class="hero-inner">
+        <span class="live-chip" data-reveal="fade"><span class="pulse"></span> Now enrolling · Cohort 2026</span>
+        <h1 class="display hero-title" data-splitting data-chars-anim>Where serious players are made.</h1>
+        <p class="lede hero-sub" data-reveal="up">Structured coaching for boys and girls, ages 6 to 20. Whether your child is picking up a bat for the first time or training for age-group selection, Cricketers Academy gives them the environment, the coaching, and the discipline to grow.</p>
+        <div class="hero-cta" data-reveal="up">
+          <a class="btn btn-gold btn-lg btn-pill" href="Contact.html"><i class="ti ti-calendar-check"></i> Book a free trial session</a>
+          <a class="btn-ghost-light" href="#ch-difference">Explore the story <i class="ti ti-arrow-down"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span class="mouse"></span>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===================== CH 01 · THE DIFFERENCE ===================== -->
+  <section class="chapter" id="ch-difference"
+           data-chapter data-label="The difference" data-bg="#0A1410" data-accent="#C7E63A">
+    <div class="swrap">
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 01</span> · The difference</div>
+      <div class="scene-split">
+        <h2 class="title" data-splitting data-words data-reveal>More than practice. A system that develops players.</h2>
+        <div>
+          <p class="lede" data-reveal="up" style="margin-bottom:18px">Most kids who love cricket never get access to the kind of structured, intentional coaching that actually builds a player. At Cricketers Academy, every session is designed with a purpose, every coach is accountable for your child's progress, and every program is built around where your child is today, not where they should be.</p>
+          <p data-reveal="up">We train the technical and the mental side of the game together. Because the best players in the world know that one without the other doesn't hold up under pressure.</p>
+        </div>
+      </div>
+      <div class="feature-row">
+        <article class="glass s-feature" data-reveal="up">
+          <div class="ic"><i class="ti ti-stairs-up"></i></div>
+          <h3>Structured progressions</h3>
+          <p>Every player moves through a clear development pathway. No filler drills. No sessions that feel busy but go nowhere.</p>
+        </article>
+        <article class="glass s-feature" data-reveal="up">
+          <div class="ic"><i class="ti ti-certificate"></i></div>
+          <h3>Qualified coaching staff</h3>
+          <p>Our coaches hold Level 2 and Level 3 certifications and bring first-class playing experience to every session.</p>
+        </article>
+        <article class="glass s-feature" data-reveal="up">
+          <div class="ic"><i class="ti ti-users"></i></div>
+          <h3>Small group sizes</h3>
+          <p>We cap batch sizes to keep the coach-to-player ratio tight. Your child gets attention, not just access.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CH 02 · THE PATHWAY ===================== -->
+  <section class="chapter" id="ch-pathway"
+           data-chapter data-label="The pathway" data-bg="#12100A" data-accent="#D6F24E">
+    <div class="swrap">
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 02</span> · The pathway</div>
+      <h2 class="title" data-splitting data-words data-reveal>One pathway, every age.</h2>
+      <p class="lede" data-reveal="up" style="margin-top:18px">From first steps at age six to Under-19 tournament cricket, plus a dedicated girls' program.</p>
+      <div class="prog-row">
+        <article class="glass s-prog" data-reveal="up">
+          <div class="num">01</div>
+          <div class="age">Ages 6–9</div>
+          <h3>Foundation</h3>
+          <p>Where every cricketer starts. We build the fundamentals and a genuine love for the game before competitive age-group cricket begins.</p>
+          <div class="meta">
+            <span><i class="ti ti-calendar"></i> Weekend mornings</span>
+            <span><i class="ti ti-mood-smile"></i> Small groups</span>
+          </div>
+        </article>
+        <article class="glass s-prog" data-reveal="up">
+          <div class="num">02</div>
+          <div class="age">U10–U19</div>
+          <h3>Age-Group Squads</h3>
+          <p>The competitive pathway. Ten squads training and competing in age-group tournaments across Dubai, with players moving up as they develop.</p>
+          <div class="meta">
+            <span><i class="ti ti-users"></i> 10 teams</span>
+            <span><i class="ti ti-trophy"></i> Tournament cricket</span>
+          </div>
+        </article>
+        <article class="glass s-prog dim" data-reveal="up">
+          <div class="num">03</div>
+          <div class="age">All ages</div>
+          <h3>Girls' Cricket</h3>
+          <p>Same coaching, same facilities, same pathway as the boys. A close-knit and growing squad of around 25 female cricketers.</p>
+          <div class="meta">
+            <span><i class="ti ti-calendar"></i> Weekends</span>
+            <span><i class="ti ti-friends"></i> All abilities</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CH 03 · ON THE FIELD ===================== -->
+  <section class="chapter" id="ch-teams"
+           data-chapter data-label="On the field" data-bg="#070907" data-accent="#C7E63A">
+    <div class="swrap">
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 03</span> · On the field</div>
+      <div style="max-width:680px">
+        <h2 class="title" data-splitting data-words data-reveal>Teams for every age group. A record to match.</h2>
+        <p class="lede" data-reveal="up" style="margin-top:16px">We field ten teams, from Under-10 to Under-19, and compete in age-group tournaments across Dubai. Here is where our squads stand on the UAE circuit.</p>
+      </div>
+      <div class="teams-row">
+        <article class="glass s-team hi" data-reveal="up">
+          <div>
+            <div class="rank"><i class="ti ti-trophy"></i> Best in the country</div>
+            <div class="age">U10 / U11</div>
+          </div>
+          <div class="desc">Our strongest junior squads. Winners of many tournaments and the best in their age group nationally.</div>
+        </article>
+        <article class="glass s-team" data-reveal="up">
+          <div>
+            <div class="rank"><i class="ti ti-chart-line"></i> Consistent</div>
+            <div class="age">U12 / U13</div>
+          </div>
+          <div class="desc">Reliable performers across the Dubai age-group circuit, season after season.</div>
+        </article>
+        <article class="glass s-team" data-reveal="up">
+          <div>
+            <div class="rank"><i class="ti ti-trending-up"></i> Competitive</div>
+            <div class="age">U14 / U15</div>
+          </div>
+          <div class="desc">Putting in reasonable, improving performances as players step up in level.</div>
+        </article>
+        <article class="glass s-team" data-reveal="up">
+          <div>
+            <div class="rank"><i class="ti ti-medal"></i> Top 4, consistently</div>
+            <div class="age">U16 / U17</div>
+          </div>
+          <div class="desc">Reach the latter stages of nearly every tournament they enter.</div>
+        </article>
+        <article class="glass s-team hi" data-reveal="up">
+          <div>
+            <div class="rank"><i class="ti ti-trophy"></i> Top 2 in the UAE</div>
+            <div class="age">U18 / U19</div>
+          </div>
+          <div class="desc">Our flagship squads, considered one of the two best academy sides in the country.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CH 04 · THE JOURNEY ===================== -->
+  <section class="chapter" id="ch-journey"
+           data-chapter data-label="The journey" data-bg="#15140E" data-accent="#C7E63A">
+    <div class="swrap">
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 04</span> · The journey</div>
+      <div class="journey-grid">
+        <div>
+          <h2 class="title" data-splitting data-words data-reveal>From first enquiry to first session.</h2>
+          <div class="steps">
+            <div class="step" data-reveal="up"><div class="sn">01</div><div><h4>Book a free trial</h4><p>Tell us your child's age and a little about their experience. We'll find a slot during a weekend morning or evening session, or a weekday evening. We train every day except Mondays, and all equipment is provided.</p></div></div>
+            <div class="step" data-reveal="up"><div class="sn">02</div><div><h4>Skills assessment</h4><p>During the trial, a coach assesses current technique across batting, bowling, and fielding, and gets a feel for where your child is today.</p></div></div>
+            <div class="step" data-reveal="up"><div class="sn">03</div><div><h4>Find the right program</h4><p>We recommend the right starting point: Foundation for our youngest players, an age-group squad from U10 to U19, or our girls' program.</p></div></div>
+            <div class="step" data-reveal="up"><div class="sn">04</div><div><h4>Start training</h4><p>Your child joins a small group on a structured curriculum. We communicate progress and hold ourselves accountable for it.</p></div></div>
+          </div>
+          <a class="btn btn-gold btn-lg btn-pill" style="margin-top:34px" href="Contact.html" data-reveal="up"><i class="ti ti-calendar-check"></i> Book a free trial</a>
+        </div>
+        <figure class="journey-media" data-reveal="scale">
+          <img src="assets/img/ca1.webp" alt="A coaching session in the nets at the Dubai facility" data-parallax>
+          <button class="play" aria-label="Play academy video"><i class="ti ti-player-play-filled"></i></button>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CH 05 · INSIDE THE ACADEMY ===================== -->
+  <section class="chapter" id="ch-gallery"
+           data-chapter data-label="Inside the academy" data-bg="#0A0D0F" data-accent="#C7E63A">
+    <div class="swrap">
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 05</span> · Inside the academy</div>
+      <h2 class="title" data-splitting data-words data-reveal>Purpose-built for cricket, year-round.</h2>
+      <div class="gallery">
+        <figure class="g-item g-a" data-reveal="scale">
+          <img src="assets/img/ca2.webp" alt="A batsman training in the nets" data-parallax>
+          <figcaption><span class="badge">Coaching</span><h3>Small-group skill blocks</h3></figcaption>
+        </figure>
+        <figure class="g-item g-b" data-reveal="scale">
+          <img src="assets/img/ca1.webp" alt="Players lining up for a drill in the nets" data-parallax>
+          <figcaption><span class="badge">Facility</span><h3>Practice nets &amp; open ground</h3></figcaption>
+        </figure>
+        <figure class="g-item g-c" data-reveal="scale">
+          <img src="assets/img/ca4.webp" alt="A young bowler in action" data-parallax>
+          <figcaption><span class="badge">Skills</span><h3>Bowling in the nets</h3></figcaption>
+        </figure>
+        <figure class="g-item g-d" data-reveal="scale">
+          <img src="assets/img/ca3.webp" alt="An age-group squad on match day" data-parallax>
+          <figcaption><span class="badge">Match play</span><h3>Age-group squad cricket</h3></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CH 06 · VOICES ===================== -->
+  <section class="chapter center-scrim" id="ch-voices"
+           data-chapter data-label="Voices" data-bg="#0E0B12" data-accent="#D6F24E">
+    <div class="swrap">
+      <div class="kicker" data-reveal="fade" style="justify-content:center"><span class="ch-line"></span><span class="ch-no">Chapter 06</span> · Voices</div>
+      <span class="quote-mark" data-reveal="fade">&ldquo;</span>
+      <p class="big-quote" data-reveal="up">I enrolled my son when he was nine and barely knew the rules. Two years later he's opening the batting for his school team. <span class="dim">The coaches here actually care about the individual, not just the group.</span></p>
+      <div class="quote-attr" data-reveal="up">Parent of a U13 squad player · Dubai</div>
+    </div>
+  </section>
+
+  <!-- ===================== CH 07 · THE INVITATION ===================== -->
+  <section class="chapter center-scrim" id="ch-invite"
+           data-chapter data-label="The invitation" data-bg="#0A100B" data-accent="#C7E63A">
+    <div class="swrap" style="text-align:center">
+      <div class="kicker" data-reveal="fade" style="justify-content:center"><span class="ch-line"></span><span class="ch-no">Chapter 07</span> · The invitation</div>
+      <h2 class="display" data-splitting data-chars-anim data-reveal style="margin:0 auto;max-width:14ch">Come see it for yourself.</h2>
+      <p class="lede" data-reveal="up" style="margin:26px auto 36px">We offer a free 60-minute trial session across all programs. No commitment, no pressure. Just bring your kit and let us show you what we do.</p>
+      <div class="hero-cta" data-reveal="up" style="justify-content:center">
+        <a class="btn btn-gold btn-lg btn-pill" href="Contact.html"><i class="ti ti-calendar-check"></i> Book your free trial</a>
+        <span class="invite-note">Sessions run every day except Mondays. Weekend mornings and evenings, weekday evenings. All equipment provided.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (shared) -->
+  <footer class="footer" data-screen-label="Home / footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-col">
+          <a class="logo" href="Cricketers Academy.html">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="16" r="13" fill="#C7E63A"></circle>
+              <path d="M11 4.6C13.1 9 13.9 12.4 13.9 16S13.1 23 11 27.4" stroke="#16160F" stroke-width="1.5" stroke-linecap="round"></path>
+              <g stroke="#16160F" stroke-width="1.2" stroke-linecap="round">
+                <path d="M12.1 7.4l2.4-.7"></path><path d="M12.9 11l2.5-.5"></path><path d="M13.1 14.8l2.6-.3"></path>
+                <path d="M13.1 18.2l2.6.3"></path><path d="M12.8 22l2.5.6"></path><path d="M12.1 25.5l2.4.8"></path>
+              </g>
+            </svg>
+            <span class="logo-text"><span class="logo-main">Cricketers Academy<span class="dot">.</span></span><span class="logo-sub">by Tellicherry Cricket Club</span></span>
+          </a>
+          <p class="footer-blurb">Dubai's cricket academy. Structured, accountable, curriculum-driven coaching for boys and girls aged 6 to 20.</p>
+          <a class="footer-cta" href="Contact.html">Book a free trial</a>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="Programs.html">Programs</a></li>
+            <li><a href="Coaches.html">Coaches</a></li>
+            <li><a href="About.html">About us</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="Programs.html#foundation">Foundation (6–9)</a></li>
+            <li><a href="Programs.html#squads">Age-Group Squads</a></li>
+            <li><a href="Programs.html#girls">Girls' Cricket</a></li>
+            <li><a href="Contact.html">Free trial session</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <ul>
+            <li>Central Dubai, UAE</li>
+            <li><a href="tel:+97100000000">+971 XX XXX XXXX</a></li>
+            <li><a href="mailto:info@cricketersacademy.ae">info@cricketersacademy.ae</a></li>
+            <li>Open daily except Mondays</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Cricketers Academy. All rights reserved.</span>
+        <span>Tellicherry Cricket Club · Dubai</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- ===================== LIBRARIES ===================== -->
+<!-- Three r158 is the last line that still ships the UMD global build (removed in r160). -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.js"></script>
+<!-- story orchestration -->
+<script src="assets/story.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs · Cricketers Academy</title>
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css">
+<style>
+.page-hero{background:var(--cream);padding:64px 0 48px;border-bottom:1px solid var(--border-light)}
+.page-hero .eyebrow{margin-bottom:18px}
+.page-hero h1{max-width:16ch}
+.page-hero p{margin-top:22px;font-size:19px;line-height:1.6;max-width:64ch}
+
+.tabbar{position:sticky;top:65px;z-index:40;background:rgba(241,241,236,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.tabbar-inner{max-width:var(--maxw);margin:0 auto;padding:0 32px;display:flex;gap:8px}
+.tab{background:none;border:none;cursor:pointer;font-family:var(--font-body);font-size:15px;font-weight:500;color:var(--ink-muted);padding:18px 4px;margin-right:28px;position:relative;transition:color .15s;white-space:nowrap}
+.tab:hover{color:var(--pitch-deep)}
+.tab.active{color:var(--pitch-deep)}
+.tab.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--gold)}
+.tab .tab-age{font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);margin-left:8px}
+
+[data-panel]{display:none}
+[data-panel].active{display:block;animation:fade .4s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.prog-detail{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:start}
+.prog-detail .badge{margin-bottom:22px}
+.prog-detail h2{margin-bottom:10px}
+.tagline{font-family:var(--font-display);font-style:italic;font-size:clamp(20px,2vw,26px);color:var(--pitch-deep);margin-bottom:24px}
+.prog-detail .body-copy p{font-size:17px;margin-bottom:16px;max-width:58ch}
+.covered{margin:36px 0}
+.covered h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:18px;font-weight:500}
+.covered ul{list-style:none;display:grid;gap:12px}
+.covered li{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--ink-mid)}
+.covered li i{color:var(--pitch-deep);font-size:19px;flex:none;margin-top:1px}
+
+/* standings table inside squads panel */
+.standings h4{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:16px;font-weight:500}
+.standings-table{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:var(--white)}
+.standings-row{display:grid;grid-template-columns:108px 1fr auto;gap:16px;align-items:center;padding:15px 18px;border-bottom:1px solid var(--border-light)}
+.standings-row:last-child{border-bottom:none}
+.standings-row .sg{font-family:var(--font-display);font-weight:600;color:var(--pitch-deep);font-size:17px}
+.standings-row .sd{font-size:14px;color:var(--ink-mid)}
+.standings-row .sr{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;padding:6px 11px;border-radius:100px;white-space:nowrap;font-weight:500}
+.sr.best{background:var(--gold);color:#16160F}
+.sr.good{background:var(--gold-pale);color:var(--pitch-deep)}
+.sr.mid{background:var(--border-light);color:var(--ink-mid)}
+
+.side-card{position:sticky;top:140px;display:flex;flex-direction:column;gap:20px}
+.side-media .ph{height:280px}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px;box-shadow:0 1px 2px rgba(15,34,25,.05)}
+.info-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border-light)}
+.info-row:last-of-type{border-bottom:none}
+.info-row i{width:38px;height:38px;border-radius:var(--r-md);background:var(--gold-pale);color:var(--pitch-deep);display:flex;align-items:center;justify-content:center;font-size:19px;flex:none}
+.info-row .info-k{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted)}
+.info-row .info-v{font-size:15px;color:var(--ink);font-weight:500;margin-top:2px}
+.info-card .btn{margin-top:20px}
+
+.botcta{padding-top:0}
+@media(max-width:900px){
+  .prog-detail{grid-template-columns:1fr;gap:36px}
+  .side-card{position:static}
+  .tabbar{top:0}
+  .tabbar-inner{overflow-x:auto}
+  .standings-row{grid-template-columns:88px 1fr;row-gap:4px}
+  .standings-row .sr{grid-column:2}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" data-screen-label="Programs / nav">
+  <div class="nav-inner">
+    <a class="logo" href="Cricketers Academy.html" aria-label="Cricketers Academy home">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" fill="#C7E63A"></circle>
+        <path d="M11 4.6C13.1 9 13.9 12.4 13.9 16S13.1 23 11 27.4" stroke="#16160F" stroke-width="1.5" stroke-linecap="round"></path>
+        <g stroke="#16160F" stroke-width="1.2" stroke-linecap="round">
+          <path d="M12.1 7.4l2.4-.7"></path><path d="M12.9 11l2.5-.5"></path><path d="M13.1 14.8l2.6-.3"></path>
+          <path d="M13.1 18.2l2.6.3"></path><path d="M12.8 22l2.5.6"></path><path d="M12.1 25.5l2.4.8"></path>
+        </g>
+      </svg>
+      <span class="logo-text"><span class="logo-main">Cricketers Academy<span class="dot">.</span></span><span class="logo-sub">by Tellicherry Cricket Club</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="Cricketers Academy.html">Home</a>
+      <a class="nav-link active" href="Programs.html">Programs</a>
+      <a class="nav-link" href="Coaches.html">Coaches</a>
+      <a class="nav-link" href="About.html">About</a>
+      <a class="nav-link" href="Contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-cta" href="Contact.html">Enrol now</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="ti ti-menu-2"></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero" data-screen-label="Programs / hero">
+  <div class="wrap">
+    <span class="eyebrow">Programs</span>
+    <h1>One pathway, from age six to Under-19.</h1>
+    <p>Cricketers Academy is built around age-group cricket. Players start in our Foundation group, move up through ten age-group squads as they develop, and compete in tournaments across Dubai. Our girls' program runs the same coaching and the same pathway.</p>
+  </div>
+</section>
+
+<div class="tabbar" data-tabs>
+  <div class="tabbar-inner">
+    <button class="tab active" data-tab="foundation">Foundation <span class="tab-age">6–9</span></button>
+    <button class="tab" data-tab="squads">Age-Group Squads <span class="tab-age">U10–U19</span></button>
+    <button class="tab" data-tab="girls">Girls' Cricket <span class="tab-age">All ages</span></button>
+  </div>
+  <span data-tab-anchor style="position:absolute"></span>
+</div>
+
+<section class="section" data-tab-panels>
+  <div class="wrap">
+
+    <!-- FOUNDATION -->
+    <div data-panel="foundation" class="active" id="foundation">
+      <div class="prog-detail">
+        <div>
+          <span class="badge badge-pitch">Ages 6–9 · weekend mornings</span>
+          <h2>Foundation</h2>
+          <div class="tagline">Where every cricketer starts.</div>
+          <div class="body-copy">
+            <p>For our youngest players, Foundation is about falling in love with the game and getting the fundamentals right, before competitive age-group cricket begins. Sessions are fun, structured, and built around how six to nine year olds actually learn.</p>
+            <p>Get this stage right and everything that follows is easier. It is the base the whole pathway is built on.</p>
+          </div>
+          <div class="covered">
+            <h4>What's covered</h4>
+            <ul>
+              <li><i class="ti ti-check"></i> First batting, bowling, and fielding skills</li>
+              <li><i class="ti ti-check"></i> Hand-eye coordination, balance, and movement</li>
+              <li><i class="ti ti-check"></i> Understanding the rules and shape of the game</li>
+              <li><i class="ti ti-check"></i> Playing in a group, confidence, and listening</li>
+              <li><i class="ti ti-check"></i> A genuine love for cricket, above all</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="side-card">
+          <div class="side-media"><div class="ph photo" style="background-image:url('assets/img/ca4.webp');background-position:center 28%"><span class="ph-label"><i class="ti ti-photo"></i> Photo: Foundation group session</span></div></div>
+          <div class="info-card">
+            <div class="info-row"><i class="ti ti-clock"></i><div><div class="info-k">Session structure</div><div class="info-v">75–90 minutes · small groups</div></div></div>
+            <div class="info-row"><i class="ti ti-calendar"></i><div><div class="info-k">Batch timings</div><div class="info-v">Weekend mornings</div></div></div>
+            <div class="info-row"><i class="ti ti-arrow-ramp-right"></i><div><div class="info-k">Pathway</div><div class="info-v">Feeds into our U10 age-group squad</div></div></div>
+            <a class="btn btn-primary btn-block btn-lg" href="Contact.html">Enrol in Foundation</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- AGE-GROUP SQUADS -->
+    <div data-panel="squads" id="squads">
+      <div class="prog-detail">
+        <div>
+          <span class="badge badge-gold">U10 to U19 · weekday evenings &amp; weekends</span>
+          <h2>Age-Group Squads</h2>
+          <div class="tagline">The competitive pathway.</div>
+          <div class="body-copy">
+            <p>This is the heart of the academy. Ten squads, from Under-10 to Under-19, training and competing in age-group tournaments across Dubai. Players are placed by age and ability, and move up through the age groups as they grow.</p>
+            <p>Our U10 and U11 squads are among the best in the country, and our U18 and U19 sides are considered one of the top two academy teams in the UAE.</p>
+          </div>
+          <div class="covered">
+            <h4>What's covered</h4>
+            <ul>
+              <li><i class="ti ti-check"></i> Advanced batting, bowling, and fielding</li>
+              <li><i class="ti ti-check"></i> Match play and tournament preparation</li>
+              <li><i class="ti ti-check"></i> Game awareness and cricket IQ</li>
+              <li><i class="ti ti-check"></i> Fitness, conditioning, and athleticism</li>
+              <li><i class="ti ti-check"></i> Mental performance and handling pressure</li>
+              <li><i class="ti ti-check"></i> Video and technical analysis for senior squads</li>
+            </ul>
+          </div>
+          <div class="standings">
+            <h4>Our squads on the UAE circuit</h4>
+            <div class="standings-table">
+              <div class="standings-row">
+                <span class="sg">U10 / U11</span>
+                <span class="sd">Multiple tournament winners, our strongest junior squads</span>
+                <span class="sr best">Best in the country</span>
+              </div>
+              <div class="standings-row">
+                <span class="sg">U12 / U13</span>
+                <span class="sd">Reliable results season after season</span>
+                <span class="sr good">Consistent performers</span>
+              </div>
+              <div class="standings-row">
+                <span class="sg">U14 / U15</span>
+                <span class="sd">Competitive and improving as players step up</span>
+                <span class="sr mid">Reasonable performances</span>
+              </div>
+              <div class="standings-row">
+                <span class="sg">U16 / U17</span>
+                <span class="sd">Reach the latter stages of nearly every tournament</span>
+                <span class="sr good">Consistently top 4</span>
+              </div>
+              <div class="standings-row">
+                <span class="sg">U18 / U19</span>
+                <span class="sd">Our flagship squads, one of the two best in the UAE</span>
+                <span class="sr best">Top 2 in the UAE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside class="side-card">
+          <div class="side-media"><div class="ph photo" style="background-image:url('assets/img/ca3.webp');background-position:center 42%"><span class="ph-label"><i class="ti ti-photo"></i> Photo: age-group squad in a match</span></div></div>
+          <div class="info-card">
+            <div class="info-row"><i class="ti ti-users"></i><div><div class="info-k">Squads</div><div class="info-v">Ten teams · U10 through U19</div></div></div>
+            <div class="info-row"><i class="ti ti-target-arrow"></i><div><div class="info-k">Placement</div><div class="info-v">By age and ability</div></div></div>
+            <div class="info-row"><i class="ti ti-trophy"></i><div><div class="info-k">Competes in</div><div class="info-v">Age-group tournaments across Dubai</div></div></div>
+            <div class="info-row"><i class="ti ti-calendar"></i><div><div class="info-k">Batch timings</div><div class="info-v">Weekday evenings · weekend mornings &amp; evenings</div></div></div>
+            <a class="btn btn-gold btn-block btn-lg" href="Contact.html">Join an age-group squad</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- GIRLS -->
+    <div data-panel="girls" id="girls">
+      <div class="prog-detail">
+        <div>
+          <span class="badge badge-neutral">All ages · weekend sessions</span>
+          <h2>Girls' Cricket</h2>
+          <div class="tagline">Same coaching. Same pathway.</div>
+          <div class="body-copy">
+            <p>Cricket is for everyone. Our girls' program gives young female cricketers the same structured coaching, the same facilities, and the same pathway as the boys. It is a close-knit and growing squad of around 25 players.</p>
+            <p>Whether your daughter is brand new to the game or already playing, there is a place for her here.</p>
+          </div>
+          <div class="covered">
+            <h4>What's covered</h4>
+            <ul>
+              <li><i class="ti ti-check"></i> Full batting, bowling, and fielding coaching</li>
+              <li><i class="ti ti-check"></i> Dedicated girls-only sessions</li>
+              <li><i class="ti ti-check"></i> A pathway into age-group and representative cricket</li>
+              <li><i class="ti ti-check"></i> A supportive, encouraging environment</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="side-card">
+          <div class="side-media"><div class="ph"><span class="ph-label"><i class="ti ti-photo"></i> Photo: girls' training session</span></div></div>
+          <div class="info-card">
+            <div class="info-row"><i class="ti ti-users"></i><div><div class="info-k">Squad</div><div class="info-v">Around 25 players and growing</div></div></div>
+            <div class="info-row"><i class="ti ti-friends"></i><div><div class="info-k">Open to</div><div class="info-v">All ages and abilities</div></div></div>
+            <div class="info-row"><i class="ti ti-calendar"></i><div><div class="info-k">Batch timings</div><div class="info-v">Weekend sessions</div></div></div>
+            <a class="btn btn-secondary btn-block btn-lg" href="Contact.html">Enrol in girls' cricket</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="section botcta">
+  <div class="wrap">
+    <div class="cta-band">
+      <div style="position:relative;z-index:1;max-width:600px">
+        <h2 style="margin-bottom:18px">Not sure where your child fits?</h2>
+        <p style="margin-bottom:32px;font-size:18px">Come in for a free trial session and we'll help you figure it out. Our coaches will assess your child's current level and recommend the right starting point on the pathway.</p>
+        <a class="btn btn-gold btn-lg" href="Contact.html"><i class="ti ti-calendar-check"></i> Book a free trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" data-screen-label="Programs / footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col">
+        <a class="logo" href="Cricketers Academy.html">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="16" cy="16" r="13" fill="#C7E63A"></circle>
+            <path d="M11 4.6C13.1 9 13.9 12.4 13.9 16S13.1 23 11 27.4" stroke="#16160F" stroke-width="1.5" stroke-linecap="round"></path>
+            <g stroke="#16160F" stroke-width="1.2" stroke-linecap="round">
+              <path d="M12.1 7.4l2.4-.7"></path><path d="M12.9 11l2.5-.5"></path><path d="M13.1 14.8l2.6-.3"></path>
+              <path d="M13.1 18.2l2.6.3"></path><path d="M12.8 22l2.5.6"></path><path d="M12.1 25.5l2.4.8"></path>
+            </g>
+          </svg>
+          <span class="logo-text"><span class="logo-main">Cricketers Academy<span class="dot">.</span></span><span class="logo-sub">by Tellicherry Cricket Club</span></span>
+        </a>
+        <p class="footer-blurb">Dubai's cricket academy. Structured, accountable, curriculum-driven coaching for boys and girls aged 6 to 20.</p>
+        <a class="footer-cta" href="Contact.html">Book a free trial</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Programs.html">Programs</a></li>
+          <li><a href="Coaches.html">Coaches</a></li>
+          <li><a href="About.html">About us</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="Programs.html#foundation">Foundation (6–9)</a></li>
+          <li><a href="Programs.html#squads">Age-Group Squads</a></li>
+          <li><a href="Programs.html#girls">Girls' Cricket</a></li>
+          <li><a href="Contact.html">Free trial session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li>Central Dubai, UAE</li>
+          <li><a href="tel:+97100000000">+971 XX XXX XXXX</a></li>
+          <li><a href="mailto:info@cricketersacademy.ae">info@cricketersacademy.ae</a></li>
+          <li>Open daily except Mondays</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Cricketers Academy. All rights reserved.</span>
+      <span>Tellicherry Cricket Club · Dubai</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+  // honour deep links (#foundation / #squads / #girls)
+  (function(){
+    var hash = (location.hash || '').replace('#','');
+    if (hash) {
+      var btn = document.querySelector('.tab[data-tab="'+hash+'"]');
+      if (btn) btn.click();
+    }
+  })();
+</script>
+</body>
+</html>

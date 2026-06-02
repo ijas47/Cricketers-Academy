@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · Cricketers Academy</title>
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css">
+<style>
+.page-hero{background:var(--cream);padding:64px 0 48px;border-bottom:1px solid var(--border-light)}
+.page-hero .eyebrow{margin-bottom:18px}
+.page-hero h1{max-width:16ch}
+.page-hero p{margin-top:22px;font-size:19px;line-height:1.6;max-width:62ch}
+
+.story{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.story .ph{height:440px}
+
+.pillars{background:var(--pitch-deep);color:var(--white)}
+.pillars .eyebrow{color:var(--gold-light)}
+.pillars h2{color:var(--white);max-width:16ch}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px}
+.pillar{border-top:2px solid var(--gold);padding-top:26px}
+.pillar .pnum{font-family:var(--font-mono);font-size:13px;color:var(--gold-light);margin-bottom:14px}
+.pillar h3{color:var(--white);font-size:23px;margin-bottom:12px}
+.pillar p{color:rgba(255,255,255,.66);font-size:16px}
+
+.facility{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+.facility .ph{height:420px}
+.fac-feats{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.fac-feats .badge{font-size:12px;padding:7px 13px}
+
+@media(max-width:900px){
+  .story,.facility{grid-template-columns:1fr;gap:36px}
+  .story .order-img{order:-1}
+  .pillar-grid{grid-template-columns:1fr;gap:28px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" data-screen-label="About / nav">
+  <div class="nav-inner">
+    <a class="logo" href="Cricketers Academy.html" aria-label="Cricketers Academy home">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" fill="#C7E63A"></circle>
+        <path d="M11 4.6C13.1 9 13.9 12.4 13.9 16S13.1 23 11 27.4" stroke="#16160F" stroke-width="1.5" stroke-linecap="round"></path>
+        <g stroke="#16160F" stroke-width="1.2" stroke-linecap="round">
+          <path d="M12.1 7.4l2.4-.7"></path><path d="M12.9 11l2.5-.5"></path><path d="M13.1 14.8l2.6-.3"></path>
+          <path d="M13.1 18.2l2.6.3"></path><path d="M12.8 22l2.5.6"></path><path d="M12.1 25.5l2.4.8"></path>
+        </g>
+      </svg>
+      <span class="logo-text"><span class="logo-main">Cricketers Academy<span class="dot">.</span></span><span class="logo-sub">by Tellicherry Cricket Club</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="Cricketers Academy.html">Home</a>
+      <a class="nav-link" href="Programs.html">Programs</a>
+      <a class="nav-link" href="Coaches.html">Coaches</a>
+      <a class="nav-link active" href="About.html">About</a>
+      <a class="nav-link" href="Contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-cta" href="Contact.html">Enrol now</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="ti ti-menu-2"></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero" data-screen-label="About / hero">
+  <div class="wrap">
+    <span class="eyebrow">About</span>
+    <h1>We built the academy we wished existed.</h1>
+    <p>Cricketers Academy was founded in Dubai by coaches who had seen too many talented young players fail to reach their potential, not because of lack of ability, but because of lack of access to real coaching infrastructure.</p>
+    <p style="font-family:var(--font-display);font-style:italic;color:var(--pitch-deep);font-size:21px;margin-top:14px">Today we are one of the top four cricket academies in the UAE, based in the heart of Dubai.</p>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="section" data-screen-label="About / story">
+  <div class="wrap">
+    <div class="story reveal">
+      <div>
+        <span class="eyebrow">Our story</span>
+        <h2 style="margin:18px 0 24px">How we started.</h2>
+        <p style="margin-bottom:16px">We opened our first batch in <strong style="color:var(--ink)">[year]</strong> with a handful of players and two coaches. The idea was simple: bring the kind of structured, accountable, curriculum-driven coaching that professional academies use, and make it available to players across Dubai.</p>
+        <p style="margin-bottom:16px">Today we train more than 275 players, around 250 boys and 25 girls, from age six to twenty. We field ten age-group squads from Under-10 to Under-19, compete in tournaments right across Dubai, and are now counted among the top four academies in the UAE.</p>
+        <p style="color:var(--pitch-deep);font-weight:500">The academy hasn't grown by accident. It's grown because the results speak.</p>
+      </div>
+      <div class="order-img">
+        <div class="ph photo" style="background-image:url('assets/img/ca3.webp');background-position:center 42%"><span class="ph-label"><i class="ti ti-photo"></i> Photo: the academy, early days &amp; today</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section pillars" data-screen-label="About / philosophy">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">What we believe</span>
+      <h2 style="margin-top:18px">Our coaching philosophy.</h2>
+    </div>
+    <div class="pillar-grid reveal">
+      <div class="pillar">
+        <div class="pnum">01</div>
+        <h3>Technique first.</h3>
+        <p>Shortcuts in technique cost players years of frustration later. We take time to build the right foundations, even when it means slowing down.</p>
+      </div>
+      <div class="pillar">
+        <div class="pnum">02</div>
+        <h3>The mental game is not optional.</h3>
+        <p>We coach focus, resilience, and game awareness as deliberately as we coach batting or bowling. The players who last are the ones who can perform under pressure.</p>
+      </div>
+      <div class="pillar">
+        <div class="pnum">03</div>
+        <h3>Progress should be visible.</h3>
+        <p>Parents should be able to see what their child is working on and how they're improving. We communicate, we report, and we hold ourselves accountable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITY -->
+<section class="section" data-screen-label="About / facility">
+  <div class="wrap">
+    <div class="facility reveal">
+      <div>
+        <div class="ph photo" style="background-image:url('assets/img/ca1.webp');background-position:center 32%"><span class="ph-label"><i class="ti ti-photo"></i> Photo: our Dubai facility &amp; nets</span></div>
+      </div>
+      <div>
+        <span class="eyebrow">The facility</span>
+        <h2 style="margin:18px 0 24px">Purpose-built for cricket.</h2>
+        <p style="margin-bottom:16px">Our facility in the heart of Dubai includes <strong style="color:var(--ink)">[X]</strong> nets, an open practice area, a fitness conditioning zone, and video analysis capability. Sessions run every day except Mondays, year-round, with indoor infrastructure for the peak summer months.</p>
+        <p>All equipment is provided for trial sessions. Players who enrol are advised on kit as part of onboarding.</p>
+        <div class="fac-feats">
+          <span class="badge badge-green"><i class="ti ti-check"></i> Practice nets</span>
+          <span class="badge badge-green"><i class="ti ti-check"></i> Open practice area</span>
+          <span class="badge badge-green"><i class="ti ti-check"></i> Conditioning zone</span>
+          <span class="badge badge-green"><i class="ti ti-check"></i> Video analysis</span>
+          <span class="badge badge-green"><i class="ti ti-check"></i> Indoor, year-round</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div style="position:relative;z-index:1;max-width:600px">
+        <span class="eyebrow">Get started</span>
+        <h2 style="margin:18px 0 18px">See the academy for yourself.</h2>
+        <p style="margin-bottom:32px;font-size:18px">Book a free 60-minute trial session. Bring your kit, we'll handle the rest.</p>
+        <a class="btn btn-gold btn-lg" href="Contact.html"><i class="ti ti-calendar-check"></i> Book a free trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" data-screen-label="About / footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col">
+        <a class="logo" href="Cricketers Academy.html">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="16" cy="16" r="13" fill="#C7E63A"></circle>
+            <path d="M11 4.6C13.1 9 13.9 12.4 13.9 16S13.1 23 11 27.4" stroke="#16160F" stroke-width="1.5" stroke-linecap="round"></path>
+            <g stroke="#16160F" stroke-width="1.2" stroke-linecap="round">
+              <path d="M12.1 7.4l2.4-.7"></path><path d="M12.9 11l2.5-.5"></path><path d="M13.1 14.8l2.6-.3"></path>
+              <path d="M13.1 18.2l2.6.3"></path><path d="M12.8 22l2.5.6"></path><path d="M12.1 25.5l2.4.8"></path>
+            </g>
+          </svg>
+          <span class="logo-text"><span class="logo-main">Cricketers Academy<span class="dot">.</span></span><span class="logo-sub">by Tellicherry Cricket Club</span></span>
+        </a>
+        <p class="footer-blurb">Dubai's cricket academy. Structured, accountable, curriculum-driven coaching for boys and girls aged 6 to 20.</p>
+        <a class="footer-cta" href="Contact.html">Book a free trial</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Programs.html">Programs</a></li>
+          <li><a href="Coaches.html">Coaches</a></li>
+          <li><a href="About.html">About us</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="Programs.html#foundation">Foundation (6–9)</a></li>
+          <li><a href="Programs.html#squads">Age-Group Squads</a></li>
+          <li><a href="Programs.html#girls">Girls' Cricket</a></li>
+          <li><a href="Contact.html">Free trial session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li>Central Dubai, UAE</li>
+          <li><a href="tel:+97100000000">+971 XX XXX XXXX</a></li>
+          <li><a href="mailto:info@cricketersacademy.ae">info@cricketersacademy.ae</a></li>
+          <li>Open daily except Mondays</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Cricketers Academy. All rights reserved.</span>
+      <span>Tellicherry Cricket Club · Dubai</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

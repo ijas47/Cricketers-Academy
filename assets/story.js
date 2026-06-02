@@ -99,13 +99,15 @@
         '  float f=fbm(p+2.2*r);',
         '  float strokes=0.5+0.5*sin((r.x+r.y)*3.14159 + f*5.0);', // brush banding
         '  f=mix(f, f*strokes, 0.35);',
-        '  vec3 col=mix(uBg, uAccent, smoothstep(0.25,0.95,f));',
-        '  col=mix(col, uBg*0.6, smoothstep(0.55,0.0,f)*0.5);',
+        '  float L=clamp(dot(uBg, vec3(0.299,0.587,0.114)),0.0,1.0);', // bg luminance: tune light vs dark
+        '  vec3 col=mix(uBg, uAccent, smoothstep(0.30,0.95,f)*mix(0.6,0.42,L));',
+        '  col=mix(col, uBg*mix(0.55,0.97,L), smoothstep(0.5,0.0,f)*(1.0-L)*0.55);',
         '  float glow=exp(-md*3.5)*uMouseStr;',          // soft accent light at the cursor
-        '  col += uAccent*glow*0.5;',
-        '  col += uAccent*pow(strokes,3.0)*0.05;',
-        '  float vig=smoothstep(1.25,0.35,length(uv-0.5)); col*=mix(0.82,1.0,vig);',
-        '  float g=hash(uv*uRes*0.5+fract(uTime))*2.0-1.0; col+=g*0.025;', // film grain
+        '  col += uAccent*glow*mix(0.5,0.34,L);',
+        '  col += uAccent*pow(strokes,3.0)*0.05*(1.0-0.6*L);',
+        '  float vig=smoothstep(1.25,0.35,length(uv-0.5));',
+        '  col*=mix( mix(0.82,1.0,vig), mix(0.965,1.0,vig), L );', // strong vignette on dark, faint on light
+        '  float g=hash(uv*uRes*0.5+fract(uTime))*2.0-1.0; col+=g*mix(0.025,0.012,L);', // film grain
         '  gl_FragColor=vec4(col,1.0);',
         '}'
       ].join('\n');
@@ -171,6 +173,7 @@
     railButtons.forEach(function (b, i) { b.classList.toggle('active', i === idx); });
     var ch = chapters[idx];
     if (!ch) return;
+    if (rail) rail.classList.toggle('on-dark', ch.dataset.theme === 'dark'); // rail adapts over dark chapters
     var bg = ch.dataset.bg, ac = ch.dataset.accent;
     if (gl) {
       var b = parseHex(bg), a = parseHex(ac);

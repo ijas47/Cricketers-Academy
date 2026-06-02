@@ -3,26 +3,27 @@
    Grounded in the uploaded Cricketers Academy design system
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap');
 
 :root{
-  --pitch:#16160F;
-  --pitch-deep:#0E0E0C;
-  --pitch-mid:#2C2C26;
-  --pitch-light:#3C3C34;
-  --gold:#C7E63A;
-  --gold-light:#D6F24E;
-  --gold-pale:#EBF6C0;
-  --cream:#F1F1EC;
+  /* ProCoach palette: near-black, neutral off-white, bright yellow-lime accent */
+  --pitch:#17171B;
+  --pitch-deep:#0E0E10;
+  --pitch-mid:#2B2B31;
+  --pitch-light:#3C3C44;
+  --gold:#D4F23A;
+  --gold-light:#E2FB5A;
+  --gold-pale:#EDF7C2;
+  --cream:#F1F1EF;
   --white:#FFFFFF;
-  --ink:#15150F;
-  --ink-mid:#56564E;
-  --ink-muted:#8B8B82;
-  --border:#E2E2DB;
-  --border-light:#ECECE5;
-  --font-display:'Space Grotesk',sans-serif;
-  --font-body:'DM Sans',sans-serif;
-  --font-mono:'DM Mono',monospace;
+  --ink:#121214;
+  --ink-mid:#55555C;
+  --ink-muted:#8A8A90;
+  --border:#E3E3E0;
+  --border-light:#ECECEA;
+  --font-display:'General Sans','Inter',system-ui,sans-serif;
+  --font-body:'General Sans','Inter',system-ui,sans-serif;
+  --font-mono:'General Sans','Inter',system-ui,sans-serif;
   --r-sm:4px;
   --r-md:8px;
   --r-lg:12px;
@@ -81,7 +82,7 @@ em.accent{color:var(--pitch-deep);font-style:normal}
 .btn-primary{background:var(--pitch);color:var(--white);padding:16px 28px}
 .btn-primary:hover{background:var(--pitch-mid);transform:translateY(-1px)}
 .btn-primary:active{transform:scale(.985)}
-.btn-gold{background:var(--gold);color:#16160F;padding:16px 28px}
+.btn-gold{background:var(--gold);color:#0E0E10;padding:16px 28px}
 .btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
 .btn-gold:active{transform:scale(.985)}
 .btn-secondary{background:transparent;color:var(--pitch);padding:15px 27px;border:1.5px solid var(--pitch)}
@@ -114,7 +115,7 @@ em.accent{color:var(--pitch-deep);font-style:normal}
   display:flex;align-items:flex-end;border-radius:var(--r-lg);
   color:rgba(255,255,255,.72);
   background-image:
-    radial-gradient(120% 120% at 75% 15%, rgba(199,230,58,.18), transparent 55%),
+    radial-gradient(120% 120% at 75% 15%, rgba(212,242,58,.18), transparent 55%),
     repeating-linear-gradient(135deg, rgba(255,255,255,.025) 0 2px, transparent 2px 22px);
 }
 .ph::after{
@@ -162,7 +163,7 @@ em.accent{color:var(--pitch-deep);font-style:normal}
 .nav-right{display:flex;align-items:center;gap:18px}
 .nav-cta{background:var(--pitch);color:var(--white);padding:11px 20px;border-radius:var(--r-sm);font-size:15px;font-weight:500;transition:all .18s var(--ease)}
 .nav-cta:hover{background:var(--pitch-mid);transform:translateY(-1px)}
-.on-dark .nav-cta{background:var(--gold);color:#16160F}
+.on-dark .nav-cta{background:var(--gold);color:#0E0E10}
 .on-dark .nav-cta:hover{background:var(--gold-light)}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--pitch-deep);font-size:26px;line-height:1}
 .on-dark .nav-toggle{color:var(--white)}
@@ -177,8 +178,8 @@ em.accent{color:var(--pitch-deep);font-style:normal}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;font-size:15px}
 .footer-blurb{font-size:15px;line-height:1.65;max-width:34ch;margin-bottom:22px}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;font-size:13px;font-family:var(--font-mono);letter-spacing:.04em;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:12px}
-.footer-cta{background:var(--gold);color:#16160F;padding:11px 20px;border-radius:var(--r-sm);font-weight:500;font-family:var(--font-body);font-size:15px;letter-spacing:0}
-.footer-cta:hover{background:var(--gold-light);color:#16160F}
+.footer-cta{background:var(--gold);color:#0E0E10;padding:11px 20px;border-radius:var(--r-sm);font-weight:500;font-family:var(--font-body);font-size:15px;letter-spacing:0}
+.footer-cta:hover{background:var(--gold-light);color:#0E0E10}
 
 /* ---------- cards ---------- */
 .card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);transition:box-shadow .2s var(--ease),transform .2s var(--ease)}
@@ -222,7 +223,7 @@ em.accent{color:var(--pitch-deep);font-style:normal}
 .acc-head:hover{color:var(--pitch-mid)}
 .acc-num{font-family:var(--font-mono);font-size:14px;color:var(--pitch-deep);font-weight:500;flex:none}
 .acc-icon{margin-left:auto;width:38px;height:38px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--pitch-deep);flex:none;transition:all .25s var(--ease)}
-.acc-item.open .acc-icon{background:var(--gold);border-color:var(--gold);color:#16160F;transform:rotate(45deg)}
+.acc-item.open .acc-icon{background:var(--gold);border-color:var(--gold);color:#0E0E10;transform:rotate(45deg)}
 .acc-body{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
 .acc-body-inner{padding:0 4px 28px 56px;font-size:16px;color:var(--ink-mid);max-width:68ch}
 
@@ -232,7 +233,7 @@ em.accent{color:var(--pitch-deep);font-style:normal}
 
 /* ---------- dark CTA band ---------- */
 .cta-band{position:relative;background:var(--pitch-deep);border-radius:var(--r-xl);padding:72px;overflow:hidden}
-.cta-band::after{content:"";position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:280px;height:280px;border-radius:50%;border:48px solid rgba(199,230,58,.10);pointer-events:none}
+.cta-band::after{content:"";position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:280px;height:280px;border-radius:50%;border:48px solid rgba(212,242,58,.10);pointer-events:none}
 .cta-band h2{color:var(--white)}
 .cta-band p{color:rgba(255,255,255,.62)}
 .cta-band .eyebrow{color:var(--gold-light)}

@@ -27,10 +27,6 @@
 <div id="bg-stage" aria-hidden="true"></div>
 <div class="grade" aria-hidden="true"></div>
 
-<!-- scroll + chapter progress -->
-<div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
-<nav class="rail" id="rail" aria-label="Chapters"></nav>
-
 <!-- NAV -->
 <header class="story-nav" id="nav">
   <a class="logo" href="Cricketers Academy.html" aria-label="Cricketers Academy home">
@@ -59,29 +55,25 @@
 
 <main class="story-main">
 
-  <!-- ===================== CH 00 · HERO ===================== -->
-  <section class="chapter" id="ch-hero"
-           data-chapter data-theme="light" data-label="The opening" data-bg="#F1F1EF" data-accent="#D4F23A">
-    <div class="swrap">
-      <div class="hero-grid">
-        <div class="hero-inner">
-          <span class="live-chip" data-reveal="fade"><span class="pulse"></span> Now enrolling · Cohort 2026</span>
-          <h1 class="display hero-title" data-splitting data-chars-anim>Where serious cricketers are made.</h1>
-          <p class="lede hero-sub" data-reveal="up">Structured coaching for boys and girls, ages 6 to 20. Whether your child is picking up a bat for the first time or training for age-group selection, Cricketers Academy gives them the environment, the coaching, and the discipline to grow.</p>
-          <div class="hero-cta" data-reveal="up">
-            <a class="btn btn-gold btn-lg btn-pill" href="Contact.html"><i class="ti ti-calendar-check"></i> Book a free trial session</a>
-            <a class="btn-ghost-light" href="Programs.html">Explore programs <i class="ti ti-arrow-right"></i></a>
-          </div>
-        </div>
-        <figure class="hero-media" data-reveal="scale">
-          <img src="assets/img/ca2.webp" alt="A young cricketer batting in the nets" data-parallax>
-          <span class="hero-tag"><i class="ti ti-ball-baseball"></i> In the nets · Dubai</span>
-        </figure>
+  <!-- ===================== HERO ===================== -->
+  <section class="chapter hero-full" id="ch-hero"
+           data-chapter data-theme="light" data-bg="#F1F1EF" data-accent="#D4F23A">
+    <img class="hero-photo" src="assets/img/ca2.webp" alt="A young cricketer batting in the nets in Dubai" data-parallax>
+    <div class="hero-scrim"></div>
+    <div class="swrap hero-content">
+      <span class="hero-eyebrow" data-reveal="fade"><span class="pulse"></span> Dubai's cricket academy</span>
+      <h1 class="display hero-title" data-splitting data-chars-anim>Where serious cricketers are made.</h1>
+      <p class="hero-lede" data-reveal="up">Structured coaching for boys and girls, ages 6 to 20. The environment, the coaching, and the discipline to grow.</p>
+      <div class="hero-cta" data-reveal="up">
+        <a class="btn btn-gold btn-lg btn-pill" href="Contact.html"><i class="ti ti-calendar-check"></i> Book a free trial session</a>
+        <a class="btn-ghost-hero" href="Programs.html">Explore programs <i class="ti ti-arrow-right"></i></a>
       </div>
     </div>
-    <div class="scroll-cue" aria-hidden="true">
-      <span class="mouse"></span>
-      <span>Scroll</span>
+    <div class="hero-stats" data-reveal="fade">
+      <div class="hstat"><span class="hn">275+</span><span class="hl">Players enrolled</span></div>
+      <div class="hstat"><span class="hn">10</span><span class="hl">Teams, U10–U19</span></div>
+      <div class="hstat"><span class="hn">Top 4</span><span class="hl">Academy in the UAE</span></div>
+      <div class="hstat"><span class="hn">6–20</span><span class="hl">Boys &amp; girls</span></div>
     </div>
   </section>
 
@@ -89,7 +81,7 @@
   <section class="chapter" id="ch-difference"
            data-chapter data-theme="light" data-label="The difference" data-bg="#ECECEA" data-accent="#D4F23A">
     <div class="swrap">
-      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 01</span> · The difference</div>
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span> The difference</div>
       <h2 class="title" data-splitting data-words data-reveal>More than practice. A system that develops players.</h2>
       <div class="scene-split media-left" style="margin-top:40px">
         <figure class="frame" data-reveal="scale">
@@ -124,7 +116,7 @@
   <section class="chapter" id="ch-pathway"
            data-chapter data-theme="light" data-label="The pathway" data-bg="#F1F1EF" data-accent="#D4F23A">
     <div class="swrap">
-      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 02</span> · The pathway</div>
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span> Programs</div>
       <h2 class="title" data-splitting data-words data-reveal>One pathway, every age.</h2>
       <p class="lede" data-reveal="up" style="margin-top:18px">From first steps at age six to Under-19 tournament cricket, plus a dedicated girls' program.</p>
       <div class="prog-row">
@@ -166,7 +158,7 @@
   <section class="chapter" id="ch-teams"
            data-chapter data-theme="dark" data-label="On the field" data-bg="#0E0E10" data-accent="#D4F23A">
     <div class="swrap">
-      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 03</span> · On the field</div>
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span> On the field</div>
       <div style="max-width:680px">
         <h2 class="title" data-splitting data-words data-reveal>Teams for every age group. A record to match.</h2>
         <p class="lede" data-reveal="up" style="margin-top:16px">We field ten teams, from Under-10 to Under-19, and compete in age-group tournaments across Dubai. Here is where our squads stand on the UAE circuit.</p>
@@ -215,7 +207,7 @@
   <section class="chapter" id="ch-journey"
            data-chapter data-theme="light" data-label="The journey" data-bg="#EEEEEC" data-accent="#D4F23A">
     <div class="swrap">
-      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 04</span> · The journey</div>
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span> Getting started</div>
       <div class="journey-grid">
         <div>
           <h2 class="title" data-splitting data-words data-reveal>From first enquiry to first session.</h2>
@@ -239,10 +231,11 @@
   <section class="chapter blend-band" id="ch-gallery"
            data-chapter data-theme="dark" data-label="Inside the academy" data-bg="#0E0E10" data-accent="#D4F23A">
     <img class="blend-photo" src="assets/img/ca3.webp" alt="An age-group squad training on the ground in Dubai" data-parallax>
+    <div class="blend-overlay"></div>
     <div class="blend-content">
-      <div class="kicker" data-reveal="fade"><span class="ch-line"></span><span class="ch-no">Chapter 05</span> · Inside the academy</div>
+      <div class="kicker" data-reveal="fade"><span class="ch-line"></span> Inside the academy</div>
       <h2 class="blend-title" data-reveal="up">Built for cricket.</h2>
-      <p class="blend-sub lede" data-reveal="up">Practice nets, an open ground, and small-group coaching, year-round, in the centre of Dubai.</p>
+      <p class="blend-sub" data-reveal="up">Practice nets, an open ground, and small-group coaching, year-round, in the centre of Dubai.</p>
     </div>
   </section>
 
@@ -250,7 +243,7 @@
   <section class="chapter center-scrim" id="ch-voices"
            data-chapter data-theme="light" data-label="Voices" data-bg="#ECECEA" data-accent="#D4F23A">
     <div class="swrap">
-      <div class="kicker" data-reveal="fade" style="justify-content:center"><span class="ch-line"></span><span class="ch-no">Chapter 06</span> · Voices</div>
+      <div class="kicker" data-reveal="fade" style="justify-content:center"><span class="ch-line"></span> What parents say</div>
       <span class="quote-mark" data-reveal="fade">&ldquo;</span>
       <p class="big-quote" data-reveal="up">I enrolled my son when he was nine and barely knew the rules. Two years later he's opening the batting for his school team. <span class="dim">The coaches here actually care about the individual, not just the group.</span></p>
       <div class="quote-attr" data-reveal="up">Parent of a U13 squad player · Dubai</div>
@@ -261,7 +254,7 @@
   <section class="chapter center-scrim" id="ch-invite"
            data-chapter data-theme="dark" data-label="The invitation" data-bg="#0C0C0E" data-accent="#D4F23A">
     <div class="swrap" style="text-align:center">
-      <div class="kicker" data-reveal="fade" style="justify-content:center"><span class="ch-line"></span><span class="ch-no">Chapter 07</span> · The invitation</div>
+      <div class="kicker" data-reveal="fade" style="justify-content:center"><span class="ch-line"></span> Get started</div>
       <h2 class="display" data-splitting data-chars-anim data-reveal style="margin:0 auto;max-width:14ch">Come see it for yourself.</h2>
       <p class="lede" data-reveal="up" style="margin:26px auto 36px">We offer a free 60-minute trial session across all programs. No commitment, no pressure. Just bring your kit and let us show you what we do.</p>
       <div class="hero-cta" data-reveal="up" style="justify-content:center">

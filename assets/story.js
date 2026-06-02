@@ -1,8 +1,9 @@
 /* ============================================================
-   Cricketers Academy · storytelling home orchestration
+   Cricketers Academy · home orchestration
    - Three.js   : painted texture backdrop that reacts to the cursor
-   - Lenis      : buttery smooth scroll
-   - GSAP + ScrollTrigger : each chapter animates in as a cinematic scene
+   - Lenis      : smooth scroll
+   - GSAP + ScrollTrigger : sections reveal on scroll; the backdrop colour
+     follows the active section (light sections vs the dark feature bands)
    - Splitting  : the hero title arrives letter by letter on load
    Degrades gracefully without WebGL and respects reduced-motion.
    ============================================================ */
@@ -28,8 +29,6 @@
   var nav = document.getElementById('nav');
   var navToggle = document.getElementById('navToggle');
   var navLinks = document.getElementById('navLinks');
-  var rail = document.getElementById('rail');
-  var scrollBar = document.getElementById('scrollBar');
   var chapters = Array.prototype.slice.call(document.querySelectorAll('[data-chapter]'));
 
   function stageGradient(bg, ac) {
@@ -154,26 +153,15 @@
   gl = initThree();
 
   /* ============================================================
-     2 · CHAPTER COLOUR + RAIL — the fluid colour transitions
+     2 · SECTION BACKGROUND COLOUR — the painted backdrop follows the
+        active section (light sections vs the dark feature bands)
      ============================================================ */
-  var railButtons = [];
-  chapters.forEach(function (ch, i) {
-    var b = document.createElement('button');
-    b.innerHTML = '<span class="rail-label">' + (ch.dataset.label || ('Chapter ' + i)) + '</span><span class="dot"></span>';
-    b.setAttribute('aria-label', 'Go to chapter: ' + (ch.dataset.label || i));
-    b.addEventListener('click', function () { goTo(ch); });
-    rail.appendChild(b);
-    railButtons.push(b);
-  });
-
   var current = -1;
   function setActive(idx) {
     if (idx === current) return;
     current = idx;
-    railButtons.forEach(function (b, i) { b.classList.toggle('active', i === idx); });
     var ch = chapters[idx];
     if (!ch) return;
-    if (rail) rail.classList.toggle('on-dark', ch.dataset.theme === 'dark'); // rail adapts over dark chapters
     var bg = ch.dataset.bg, ac = ch.dataset.accent;
     if (gl) {
       var b = parseHex(bg), a = parseHex(ac);
@@ -268,7 +256,7 @@
 
     if (prefersReduced || !hasGSAP) {
       // No motion (reduced-motion, or GSAP failed to load): drop the hidden
-      // initial states so all content is visible, then just colour-key the rail.
+      // initial states so all content is visible, then colour-key the backdrop.
       document.documentElement.classList.remove('anim');
       if (gl) { // still animate the painted backdrop with a plain RAF
         var raf = function (t) { gl.render(t / 1000); requestAnimationFrame(raf); };
@@ -295,13 +283,7 @@
     });
     gsap.ticker.lagSmoothing(0);
 
-    // top progress bar
-    ScrollTrigger.create({
-      start: 0, end: 'max',
-      onUpdate: function (self) { scrollBar.style.transform = 'scaleX(' + self.progress + ')'; }
-    });
-
-    // per-chapter colour transition + rail sync
+    // per-section background-colour transition
     chapters.forEach(function (ch, idx) {
       ScrollTrigger.create({
         trigger: ch, start: 'top 60%', end: 'bottom 40%',

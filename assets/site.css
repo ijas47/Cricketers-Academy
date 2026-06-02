@@ -79,8 +79,8 @@ em.accent{color:var(--pitch-deep);font-style:normal}
   white-space:nowrap;line-height:1;text-align:center;
 }
 .btn i{font-size:18px}
-.btn-primary{background:var(--pitch);color:var(--white);padding:16px 28px}
-.btn-primary:hover{background:var(--pitch-mid);transform:translateY(-1px)}
+.btn-primary{background:var(--gold);color:#0E0E10;padding:16px 28px}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
 .btn-primary:active{transform:scale(.985)}
 .btn-gold{background:var(--gold);color:#0E0E10;padding:16px 28px}
 .btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
@@ -161,8 +161,8 @@ em.accent{color:var(--pitch-deep);font-style:normal}
 .on-dark .nav-link{color:rgba(255,255,255,.75)}
 .on-dark .nav-link:hover,.on-dark .nav-link.active{color:var(--white)}
 .nav-right{display:flex;align-items:center;gap:18px}
-.nav-cta{background:var(--pitch);color:var(--white);padding:11px 20px;border-radius:var(--r-sm);font-size:15px;font-weight:500;transition:all .18s var(--ease)}
-.nav-cta:hover{background:var(--pitch-mid);transform:translateY(-1px)}
+.nav-cta{background:var(--gold);color:#0E0E10;padding:11px 20px;border-radius:100px;font-size:15px;font-weight:600;transition:all .18s var(--ease)}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
 .on-dark .nav-cta{background:var(--gold);color:#0E0E10}
 .on-dark .nav-cta:hover{background:var(--gold-light)}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--pitch-deep);font-size:26px;line-height:1}

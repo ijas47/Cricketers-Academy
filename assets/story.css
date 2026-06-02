@@ -164,9 +164,25 @@ html.lenis, html.lenis body { height: auto; }
    HERO (Chapter 00, light)
    ============================================================ */
 #ch-hero { min-height: 100vh; display: flex; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 1.04fr .96fr; gap: 56px; align-items: center; width: 100%; }
+.hero-grid .hero-inner { max-width: 640px; }
+.hero-grid .display { font-size: clamp(34px, 5vw, 72px); max-width: 15ch; }
 .hero-inner { max-width: 760px; }
-.hero-inner .display { max-width: 13ch; }
-.hero-sub { margin: 30px 0 38px; }
+.hero-sub { margin: 28px 0 36px; }
+
+/* framed photography (hero media + images woven into scenes) */
+.hero-media, .frame { position: relative; overflow: hidden; border-radius: var(--r-lg); box-shadow: 0 30px 70px -34px rgba(0,0,0,.5); }
+.hero-media { aspect-ratio: 4/5; }
+.frame { aspect-ratio: 5/6; }
+.hero-media img, .frame img { position: absolute; top: -8%; left: 0; width: 100%; height: 116%; object-fit: cover; will-change: transform; }
+.hero-tag { position: absolute; left: 16px; bottom: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 100px; background: rgba(14,14,16,.62); backdrop-filter: blur(6px);
+  color: #fff; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.hero-tag i { color: var(--gold); font-size: 14px; }
+@media (max-width: 900px){
+  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+  .hero-media { aspect-ratio: 16/11; } .frame { aspect-ratio: 16/12; }
+}
 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 .btn-pill { border-radius: 100px; }
 .btn-gold.btn-pill { background: var(--gold); color: #0E0E10; }
@@ -210,6 +226,7 @@ html.lenis, html.lenis body { height: auto; }
 
 /* The Difference — feature trio */
 .scene-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.scene-split.media-left { grid-template-columns: .82fr 1.18fr; align-items: center; }
 .feature-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 64px; }
 .s-feature { padding: 30px 26px; }
 .s-feature .ic { width: 50px; height: 50px; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-size: 23px; background: var(--gold); color: #0E0E10; margin-bottom: 22px; }
@@ -257,20 +274,21 @@ html.lenis, html.lenis body { height: auto; }
 .journey-media .play { position: absolute; top: 18px; right: 18px; width: 54px; height: 54px; border-radius: 50%; background: var(--gold); color: #0E0E10; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 22px; transition: transform .2s var(--ease); }
 .journey-media .play:hover { transform: scale(1.08); }
 
-/* Gallery — cinematic photo grid with parallax */
-.gallery { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 150px; gap: 16px; margin-top: 54px; }
-.g-item { position: relative; overflow: hidden; border-radius: var(--r-lg); box-shadow: 0 18px 44px -28px rgba(0,0,0,.4); }
-.g-item img { position: absolute; top: -15%; left: 0; width: 100%; height: 130%; object-fit: cover; will-change: transform; }
-.g-item figcaption { position: absolute; left: 0; bottom: 0; padding: 22px; z-index: 2; background: linear-gradient(to top, rgba(6,7,6,.85), transparent); width: 100%; display: flex; flex-direction: column; gap: 8px; }
-.g-item .badge { align-self: flex-start; background: var(--gold); color: #0E0E10; }
-.g-item h3 { font-family: var(--font-display); font-size: 20px; color: #fff; }
-.g-a { grid-column: span 7; grid-row: span 3; }
-.g-b { grid-column: span 5; grid-row: span 2; }
-.g-c { grid-column: span 5; grid-row: span 2; }
-.g-d { grid-column: span 7; grid-row: span 2; }
-@media (max-width: 760px){
-  .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 180px; }
-  .g-a,.g-b,.g-c,.g-d { grid-column: span 2; grid-row: span 1; }
+/* Inside the academy — ONE LINE of text over photography via mix-blend-mode */
+.blend-band { isolation: isolate; padding: 0; min-height: 92vh; }
+.blend-band::before { display: none; } /* the photo is the scene; no scrim */
+.blend-photo { position: absolute; inset: -6% 0; width: 100%; height: 112%; object-fit: cover; z-index: 0; filter: brightness(.72); will-change: transform; }
+.blend-content { position: relative; z-index: 2; align-self: center; width: 100%; max-width: 1500px; margin: 0 auto; padding: 0 40px; }
+.blend-title {
+  font-family: var(--font-display); font-weight: 600; letter-spacing: -.03em; line-height: .96;
+  font-size: clamp(44px, 9vw, 150px); color: #fff; white-space: nowrap;
+  mix-blend-mode: difference; margin: 12px 0 18px;
+}
+.blend-sub { color: #fff; text-shadow: 0 1px 24px rgba(0,0,0,.6); max-width: 48ch; }
+.blend-band .kicker { color: var(--gold); text-shadow: 0 1px 16px rgba(0,0,0,.7); }
+@media (max-width: 720px){
+  .blend-content { padding: 0 22px; }
+  .blend-title { white-space: normal; font-size: clamp(40px, 13vw, 72px); }
 }
 
 /* Voices — testimonial (light) */
@@ -305,7 +323,7 @@ html.lenis, html.lenis body { height: auto; }
 
 /* ---------- responsive scene layout ---------- */
 @media (max-width: 900px){
-  .scene-split, .journey-grid { grid-template-columns: 1fr; gap: 36px; }
+  .scene-split, .scene-split.media-left, .journey-grid { grid-template-columns: 1fr; gap: 36px; }
   .feature-row, .prog-row { grid-template-columns: 1fr; gap: 18px; }
   .chapter { padding: 96px 0; }
 }

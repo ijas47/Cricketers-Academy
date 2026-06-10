@@ -113,6 +113,32 @@
       revs.forEach(function (el) { el.classList.add('in'); });
     }
 
+    /* ---- count-up numbers ("275+" counts 0→275, keeps the suffix) ---- */
+    var counters = document.querySelectorAll('.stat-val, [data-count]');
+    function runCount(el) {
+      var m = (el.textContent || '').trim().match(/^(\d+)(.*)$/);
+      if (!m) return;
+      var end = +m[1], suffix = m[2], t0 = null, dur = 1300;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      function frame(t) {
+        if (!t0) t0 = t;
+        var p = Math.min((t - t0) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(end * eased) + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+    if ('IntersectionObserver' in window && counters.length) {
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { runCount(e.target); cio.unobserve(e.target); }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(function (el) { cio.observe(el); });
+    }
+
     /* ---- form validation ---- */
     document.querySelectorAll('[data-validate]').forEach(function (form) {
       form.addEventListener('submit', function (e) {

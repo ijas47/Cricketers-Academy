@@ -15,7 +15,7 @@
   linear-gradient(90deg,rgba(8,9,8,.82) 0%,rgba(8,9,8,.5) 50%,rgba(8,9,8,.2) 100%),
   linear-gradient(0deg,rgba(8,9,8,.82) 0%,transparent 55%)}
 .tour-hero .wrap{position:relative;z-index:2;padding-top:160px;padding-bottom:64px}
-.tour-hero h1{color:#fff;max-width:14ch;font-size:clamp(38px,5.6vw,72px)}
+.tour-hero h1{color:#fff;max-width:14ch;font-size:clamp(44px,6.8vw,96px);letter-spacing:-.035em;line-height:.99}
 .tour-hero .eyebrow{color:var(--gold)}
 .tour-hero .eyebrow::before{background:var(--gold)}
 .tour-hero p{color:rgba(255,255,255,.82);font-size:19px;line-height:1.6;max-width:56ch;margin-top:20px}
@@ -81,6 +81,7 @@
 .sponsor-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
 @media(max-width:900px){.sponsor-grid{grid-template-columns:1fr;gap:36px}}
 </style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -118,7 +119,7 @@
   <div class="scrim"></div>
   <div class="wrap">
     <span class="eyebrow">International tours</span>
-    <h1 style="margin-top:18px">The world is our training ground.</h1>
+    <h1 style="margin-top:18px">The world is our <em>training ground</em>.</h1>
     <p>Every year, our squads leave Dubai and go where the game lives. Touring sides play competitive cricket abroad, and our players spend time training inside some of the best academies in the world. It changes how they play, and who they are.</p>
     <div class="tour-chips">
       <span class="chip"><i class="ti ti-plane-departure"></i> India 2022</span>
@@ -271,6 +272,11 @@
 
 <footer class="footer" data-screen-label="Tours / footer">
   <div class="wrap">
+      <div class="footer-hello">
+        <span class="fh-eyebrow">Next step</span>
+        <a class="fh-link" href="Contact.html">Start your <em>innings</em>.<span class="fh-arrow"><i class="ti ti-arrow-up-right"></i></span></a>
+        <p class="fh-sub">Free 60-minute trial · every day except Mondays · Shabab Al Ahli Stadium, Dubai</p>
+      </div>
     <div class="footer-top">
       <div class="footer-col">
         <a class="logo" href="Cricketers Academy.html">
@@ -320,6 +326,7 @@
     <div class="footer-bottom">
       <span>© 2026 Cricketers Academy. All rights reserved.</span>
       <span>Tellicherry Cricket Club · Dubai</span>
+      <a class="top-link" href="#">Back to top <i class="ti ti-arrow-up"></i></a>
     </div>
   </div>
 </footer>

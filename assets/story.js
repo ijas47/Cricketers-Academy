@@ -292,21 +292,37 @@
       });
     });
 
-    // HERO — title arrives letter by letter on load, then the rest
+    // count-up for stat numbers ("275+" → counts 0→275, keeps the suffix)
+    function countUp(el, dur) {
+      var m = (el.textContent || '').trim().match(/^(\d+)(.*)$/);
+      if (!m) return;
+      var end = +m[1], suffix = m[2], obj = { v: 0 };
+      gsap.to(obj, {
+        v: end, duration: dur || 1.6, ease: 'power2.out',
+        onUpdate: function () { el.textContent = Math.round(obj.v) + suffix; }
+      });
+    }
+
+    // HERO — photo settles, title arrives letter by letter, stats count up
     var hero = document.getElementById('ch-hero');
     if (hero) {
       var heroTitle = hero.querySelector('.hero-title');
+      var heroPhoto = hero.querySelector('.hero-photo');
       var tl = gsap.timeline({ delay: 0.15 });
+      if (heroPhoto) tl.fromTo(heroPhoto, { scale: 1.08 }, { scale: 1, duration: 2, ease: 'power2.out' }, 0);
       if (heroTitle) {
         gsap.set(heroTitle, { opacity: 1 });
         var chars = heroTitle.querySelectorAll('.char');
         tl.fromTo(chars,
           { yPercent: 120, opacity: 0, rotateX: -90, transformPerspective: 800, transformOrigin: '50% 100%' },
-          { yPercent: 0, opacity: 1, rotateX: 0, stagger: 0.028, duration: 0.8, ease: 'power3.out' });
+          { yPercent: 0, opacity: 1, rotateX: 0, stagger: 0.028, duration: 0.8, ease: 'power3.out' }, 0.1);
       }
       hero.querySelectorAll('[data-reveal]').forEach(function (el) {
         tl.fromTo(el, revealFrom(el), { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' }, '-=0.45');
       });
+      tl.call(function () {
+        hero.querySelectorAll('.hstat .hn').forEach(function (el) { countUp(el); });
+      }, null, '-=0.6');
     }
 
     // EACH OTHER CHAPTER — animates in as a cinematic scene
@@ -335,6 +351,14 @@
         yPercent: 6, ease: 'none',
         scrollTrigger: { trigger: img.parentElement || img, start: 'top bottom', end: 'bottom top', scrub: true }
       });
+    });
+
+    // photo unmask — framed images wipe open on scroll, settling from a slight zoom
+    gsap.utils.toArray('[data-unmask]').forEach(function (fig) {
+      var img = fig.querySelector('img');
+      var utl = gsap.timeline({ scrollTrigger: { trigger: fig, start: 'top 80%', once: true } });
+      utl.fromTo(fig, { clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)', duration: 1.05, ease: 'power4.inOut' }, 0);
+      if (img) utl.fromTo(img, { scale: 1.14 }, { scale: 1, duration: 1.5, ease: 'power3.out' }, 0.1);
     });
 
     setActive(0);

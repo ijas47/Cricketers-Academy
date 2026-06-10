@@ -4,16 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About · Cricketers Academy</title>
+<meta name="description" content="Tellicherry Cricket Club was founded in Dubai in the late 1980s by first-class and state-level cricketers. Its academy at Shabab Al Ahli Stadium is registered under the Dubai Cricket Council.">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css">
 <style>
 .page-hero{background:var(--cream);padding:64px 0 48px;border-bottom:1px solid var(--border-light)}
 .page-hero .eyebrow{margin-bottom:18px}
-.page-hero h1{max-width:16ch}
+.page-hero h1{max-width:18ch}
 .page-hero p{margin-top:22px;font-size:19px;line-height:1.6;max-width:62ch}
 
 .story{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
 .story .ph{height:440px}
+
+/* affiliation chips */
+.affil{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.affil .badge{font-size:12px;padding:8px 14px}
 
 .pillars{background:var(--pitch-deep);color:var(--white)}
 .pillars .eyebrow{color:var(--gold-light)}
@@ -23,6 +28,14 @@
 .pillar .pnum{font-family:var(--font-mono);font-size:13px;color:var(--gold-light);margin-bottom:14px}
 .pillar h3{color:var(--white);font-size:23px;margin-bottom:12px}
 .pillar p{color:rgba(255,255,255,.66);font-size:16px}
+.pillars-head{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.crest{width:190px;border-radius:var(--r-md);border:1px solid rgba(255,255,255,.14);display:block}
+@media(max-width:760px){.pillars-head{grid-template-columns:1fr}.crest{width:150px}}
+
+/* role models band */
+.legends{background:var(--white);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.legends-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+.legends .ph{height:400px}
 
 .facility{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
 .facility .ph{height:420px}
@@ -30,7 +43,7 @@
 .fac-feats .badge{font-size:12px;padding:7px 13px}
 
 @media(max-width:900px){
-  .story,.facility{grid-template-columns:1fr;gap:36px}
+  .story,.facility,.legends-grid{grid-template-columns:1fr;gap:36px}
   .story .order-img{order:-1}
   .pillar-grid{grid-template-columns:1fr;gap:28px}
 }
@@ -55,6 +68,7 @@
       <a class="nav-link" href="Cricketers Academy.html">Home</a>
       <a class="nav-link" href="Programs.html">Programs</a>
       <a class="nav-link" href="Coaches.html">Coaches</a>
+      <a class="nav-link" href="Tours.html">Tours</a>
       <a class="nav-link active" href="About.html">About</a>
       <a class="nav-link" href="Contact.html">Contact</a>
     </nav>
@@ -68,9 +82,9 @@
 <section class="page-hero" data-screen-label="About / hero">
   <div class="wrap">
     <span class="eyebrow">About</span>
-    <h1>We built the academy we wished existed.</h1>
-    <p>Cricketers Academy was founded in Dubai by coaches who had seen too many talented young players fail to reach their potential, not because of lack of ability, but because of lack of access to real coaching infrastructure.</p>
-    <p style="font-family:var(--font-display);font-style:italic;color:var(--pitch-deep);font-size:21px;margin-top:14px">Today we are one of the top four cricket academies in the UAE, based in the heart of Dubai.</p>
+    <h1>Built by cricketers who played the game properly.</h1>
+    <p>Tellicherry Cricket Club was established in Dubai in the late 1980s by a group of passionate cricketers, first-class and state-level players living in the UAE. The academy is the club's centre of excellence: strengthening the game, and the character, of every player who trains here.</p>
+    <p style="font-family:var(--font-display);font-style:italic;color:var(--pitch-deep);font-size:21px;margin-top:14px">The objective, in the club's own words: excellent cricketers &amp; first-class citizens.</p>
   </div>
 </section>
 
@@ -80,13 +94,35 @@
     <div class="story reveal">
       <div>
         <span class="eyebrow">Our story</span>
-        <h2 style="margin:18px 0 24px">How we started.</h2>
-        <p style="margin-bottom:16px">We opened our first batch in <strong style="color:var(--ink)">[year]</strong> with a handful of players and two coaches. The idea was simple: bring the kind of structured, accountable, curriculum-driven coaching that professional academies use, and make it available to players across Dubai.</p>
-        <p style="margin-bottom:16px">Today we train more than 275 players, around 250 boys and 25 girls, from age six to twenty. We field ten age-group squads from Under-10 to Under-19, compete in tournaments right across Dubai, and are now counted among the top four academies in the UAE.</p>
+        <h2 style="margin:18px 0 24px">From the late 1980s to today.</h2>
+        <p style="margin-bottom:16px">What began as a club founded by first-class and state-level cricketers has grown into one of the UAE's leading academies. Today, Cricketers Academy is headquartered at <strong style="color:var(--ink)">Shabab Al Ahli Stadium</strong> in Al Nahda, Dubai, and is <strong style="color:var(--ink)">registered under the Dubai Cricket Council</strong>.</p>
+        <p style="margin-bottom:16px">We train more than 275 players, around 250 boys and 25 girls, from age six to twenty, across ten age-group squads, with our players averaging 30 competitive matches a season against academies across the UAE. We work closely with the Emirates Cricket Board and with state associations in India to take budding cricketers to district, state, and national level.</p>
         <p style="color:var(--pitch-deep);font-weight:500">The academy hasn't grown by accident. It's grown because the results speak.</p>
+        <div class="affil">
+          <span class="badge badge-green"><i class="ti ti-rosette-discount-check"></i> Registered · Dubai Cricket Council</span>
+          <span class="badge badge-green"><i class="ti ti-rosette-discount-check"></i> Working with the Emirates Cricket Board</span>
+          <span class="badge badge-green"><i class="ti ti-rosette-discount-check"></i> Linked to state associations in India</span>
+        </div>
       </div>
       <div class="order-img">
-        <div class="ph photo" style="background-image:url('assets/img/ca3.webp');background-position:center 42%"><span class="ph-label"><i class="ti ti-photo"></i> Photo: the academy, early days &amp; today</span></div>
+        <div class="ph photo" style="background-image:url('assets/img/art-batsman.webp');background-position:center 30%"><span class="ph-label"><i class="ti ti-photo"></i> From the club's 25-year portfolio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLE MODELS -->
+<section class="section legends" data-screen-label="About / role models">
+  <div class="wrap">
+    <div class="legends-grid reveal">
+      <div>
+        <div class="ph photo" style="background-image:url('assets/img/visit-crowd.webp');background-position:center 35%"><span class="ph-label"><i class="ti ti-photo"></i> A player visit at the academy</span></div>
+      </div>
+      <div>
+        <span class="eyebrow">Our success story</span>
+        <h2 style="margin:18px 0 24px">Role models walk through our doors.</h2>
+        <p style="margin-bottom:16px">Current and former first-class cricketers regularly visit the academy to spend time with our players and share what the game looks like from the inside. For a twelve-year-old working on their cover drive, hearing it from someone who has played at that level changes what feels possible.</p>
+        <p>It's part of how we coach confidence, not just technique.</p>
       </div>
     </div>
   </div>
@@ -95,9 +131,12 @@
 <!-- PHILOSOPHY -->
 <section class="section pillars" data-screen-label="About / philosophy">
   <div class="wrap">
-    <div class="reveal">
-      <span class="eyebrow">What we believe</span>
-      <h2 style="margin-top:18px">Our coaching philosophy.</h2>
+    <div class="pillars-head reveal">
+      <div>
+        <span class="eyebrow">What we believe</span>
+        <h2 style="margin-top:18px">Our coaching philosophy.</h2>
+      </div>
+      <img class="crest" src="assets/img/crest.webp" alt="The Tellicherry Cricket Club crest, marking 25 years">
     </div>
     <div class="pillar-grid reveal">
       <div class="pillar">
@@ -124,19 +163,19 @@
   <div class="wrap">
     <div class="facility reveal">
       <div>
-        <div class="ph photo" style="background-image:url('assets/img/ca1.webp');background-position:center 32%"><span class="ph-label"><i class="ti ti-photo"></i> Photo: our Dubai facility &amp; nets</span></div>
+        <div class="ph photo" style="background-image:url('assets/img/ca1.webp');background-position:center 32%"><span class="ph-label"><i class="ti ti-photo"></i> The nets at Shabab Al Ahli</span></div>
       </div>
       <div>
         <span class="eyebrow">The facility</span>
-        <h2 style="margin:18px 0 24px">Purpose-built for cricket.</h2>
-        <p style="margin-bottom:16px">Our facility in the heart of Dubai includes <strong style="color:var(--ink)">[X]</strong> nets, an open practice area, a fitness conditioning zone, and video analysis capability. Sessions run every day except Mondays, year-round, with indoor infrastructure for the peak summer months.</p>
+        <h2 style="margin:18px 0 24px">Home ground: Shabab Al Ahli Stadium.</h2>
+        <p style="margin-bottom:16px">The academy is based at <strong style="color:var(--ink)">Shabab Al Ahli Stadium in Al Nahda, Dubai</strong>: practice nets, an open ground, and a conditioning setup, with sessions running every day except Mondays, all year round. Weekend mornings and evenings, weekday evenings.</p>
         <p>All equipment is provided for trial sessions. Players who enrol are advised on kit as part of onboarding.</p>
         <div class="fac-feats">
           <span class="badge badge-green"><i class="ti ti-check"></i> Practice nets</span>
-          <span class="badge badge-green"><i class="ti ti-check"></i> Open practice area</span>
+          <span class="badge badge-green"><i class="ti ti-check"></i> Open ground</span>
           <span class="badge badge-green"><i class="ti ti-check"></i> Conditioning zone</span>
-          <span class="badge badge-green"><i class="ti ti-check"></i> Video analysis</span>
-          <span class="badge badge-green"><i class="ti ti-check"></i> Indoor, year-round</span>
+          <span class="badge badge-green"><i class="ti ti-check"></i> Stadium venue</span>
+          <span class="badge badge-green"><i class="ti ti-check"></i> Year-round, 6 days a week</span>
         </div>
       </div>
     </div>
@@ -150,7 +189,7 @@
       <div style="position:relative;z-index:1;max-width:600px">
         <span class="eyebrow">Get started</span>
         <h2 style="margin:18px 0 18px">See the academy for yourself.</h2>
-        <p style="margin-bottom:32px;font-size:18px">Book a free 60-minute trial session. Bring your kit, we'll handle the rest.</p>
+        <p style="margin-bottom:32px;font-size:18px">Book a free 60-minute trial session at Shabab Al Ahli Stadium. Bring your kit, we'll handle the rest.</p>
         <a class="btn btn-gold btn-lg" href="Contact.html"><i class="ti ti-calendar-check"></i> Book a free trial</a>
       </div>
     </div>
@@ -180,6 +219,7 @@
         <ul>
           <li><a href="Programs.html">Programs</a></li>
           <li><a href="Coaches.html">Coaches</a></li>
+          <li><a href="Tours.html">International Tours</a></li>
           <li><a href="About.html">About us</a></li>
           <li><a href="Contact.html">Contact</a></li>
         </ul>
@@ -196,7 +236,7 @@
       <div class="footer-col">
         <h4>Visit</h4>
         <ul>
-          <li>Central Dubai, UAE</li>
+          <li>Shabab Al Ahli Club, Al Nahda, Dubai</li>
           <li><a href="tel:+971505657811">+971 50 5657811</a></li>
           <li><a href="mailto:tellicherry.cricket@gmail.com">tellicherry.cricket@gmail.com</a></li>
           <li><a href="https://instagram.com/tellicherry_cricket_academy" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px"><i class="ti ti-brand-instagram"></i> @tellicherry_cricket_academy</a></li>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>International Tours · Cricketers Academy</title>
+<meta name="description" content="Every year Cricketers Academy tours internationally. Squads train at leading academies around the world and play competitive cricket abroad. India 2022 & 2023, UK & Sri Lanka next.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.30.0/dist/tabler-icons.min.css">
+<style>
+/* ---------- tours hero (dark, photographic) ---------- */
+.tour-hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--pitch-deep)}
+.tour-hero .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.tour-hero .scrim{position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(8,9,8,.82) 0%,rgba(8,9,8,.5) 50%,rgba(8,9,8,.2) 100%),
+  linear-gradient(0deg,rgba(8,9,8,.82) 0%,transparent 55%)}
+.tour-hero .wrap{position:relative;z-index:2;padding-top:160px;padding-bottom:64px}
+.tour-hero h1{color:#fff;max-width:14ch;font-size:clamp(38px,5.6vw,72px)}
+.tour-hero .eyebrow{color:var(--gold)}
+.tour-hero .eyebrow::before{background:var(--gold)}
+.tour-hero p{color:rgba(255,255,255,.82);font-size:19px;line-height:1.6;max-width:56ch;margin-top:20px}
+.tour-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.tour-chips .chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:100px;
+  border:1px solid rgba(255,255,255,.22);color:#fff;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.06);backdrop-filter:blur(6px)}
+.tour-chips .chip i{color:var(--gold);font-size:15px}
+.tour-chips .chip.hi{background:var(--gold);border-color:var(--gold);color:#0E0E10}
+.tour-chips .chip.hi i{color:#0E0E10}
+
+/* ---------- what a tour looks like ---------- */
+.tour-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.tcard{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px 28px;position:relative;overflow:hidden;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.tcard::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--gold)}
+.tcard:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(15,34,25,.35)}
+.tcard .tic{width:50px;height:50px;border-radius:var(--r-md);background:var(--gold);color:#0E0E10;display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:22px}
+.tcard h3{margin-bottom:10px}
+.tcard p{font-size:15px}
+
+/* ---------- gallery ---------- */
+.tgal{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:170px;gap:16px;margin-top:54px}
+.tg{position:relative;overflow:hidden;border-radius:var(--r-lg);box-shadow:0 18px 44px -28px rgba(0,0,0,.4)}
+.tg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.tg:hover img{transform:scale(1.045)}
+.tg figcaption{position:absolute;left:0;bottom:0;width:100%;padding:18px;z-index:2;
+  background:linear-gradient(to top,rgba(6,7,6,.82),transparent);color:#fff;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.tg figcaption i{color:var(--gold)}
+.tg-a{grid-column:span 7;grid-row:span 2}
+.tg-b{grid-column:span 5}
+.tg-c{grid-column:span 5}
+.tg-d{grid-column:span 4}
+.tg-e{grid-column:span 4}
+.tg-f{grid-column:span 4}
+@media(max-width:760px){.tgal{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.tg-a,.tg-b,.tg-c,.tg-d,.tg-e,.tg-f{grid-column:span 2;grid-row:span 1}}
+
+/* ---------- timeline ---------- */
+.timeline{background:var(--pitch-deep)}
+.timeline .eyebrow{color:var(--gold)}
+.timeline .eyebrow::before{background:var(--gold)}
+.timeline h2{color:#fff}
+.timeline p{color:rgba(255,255,255,.7)}
+.tl-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
+.tl{border-top:2px solid rgba(255,255,255,.16);padding-top:22px}
+.tl .yr{font-family:var(--font-display);font-size:30px;font-weight:600;color:#fff;line-height:1}
+.tl .dest{font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:10px 0 10px}
+.tl p{font-size:14px;color:rgba(255,255,255,.62)}
+.tl.next{border-top-color:var(--gold)}
+.tl.next .yr{color:var(--gold)}
+@media(max-width:860px){.tl-row{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.tl-row{grid-template-columns:1fr}}
+
+/* ---------- residency split ---------- */
+.resi{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.resi .ph{height:420px}
+.resi-points{margin-top:26px;display:flex;flex-direction:column;gap:14px}
+.resi-points li{list-style:none;display:flex;gap:12px;align-items:flex-start;font-size:15.5px;color:var(--ink-mid)}
+.resi-points li i{color:#0E0E10;background:var(--gold);border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;flex:none;margin-top:2px}
+@media(max-width:900px){.resi{grid-template-columns:1fr;gap:36px}}
+
+/* ---------- sponsor band ---------- */
+.sponsor{background:var(--white);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
+.sponsor-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+@media(max-width:900px){.sponsor-grid{grid-template-columns:1fr;gap:36px}}
+</style>
+</head>
+<body>
+
+<header class="nav" data-screen-label="Tours / nav">
+  <div class="nav-inner">
+    <a class="logo" href="Cricketers Academy.html" aria-label="Cricketers Academy home">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="13" fill="#D4F23A"></circle>
+        <path d="M11 4.6C13.1 9 13.9 12.4 13.9 16S13.1 23 11 27.4" stroke="#0E0E10" stroke-width="1.5" stroke-linecap="round"></path>
+        <g stroke="#0E0E10" stroke-width="1.2" stroke-linecap="round">
+          <path d="M12.1 7.4l2.4-.7"></path><path d="M12.9 11l2.5-.5"></path><path d="M13.1 14.8l2.6-.3"></path>
+          <path d="M13.1 18.2l2.6.3"></path><path d="M12.8 22l2.5.6"></path><path d="M12.1 25.5l2.4.8"></path>
+        </g>
+      </svg>
+      <span class="logo-text"><span class="logo-main">Cricketers Academy<span class="dot">.</span></span><span class="logo-sub">by Tellicherry Cricket Club</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="Cricketers Academy.html">Home</a>
+      <a class="nav-link" href="Programs.html">Programs</a>
+      <a class="nav-link" href="Coaches.html">Coaches</a>
+      <a class="nav-link active" href="Tours.html">Tours</a>
+      <a class="nav-link" href="About.html">About</a>
+      <a class="nav-link" href="Contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-cta" href="Contact.html">Enrol now</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><i class="ti ti-menu-2"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="tour-hero" data-screen-label="Tours / hero">
+  <img class="bgimg" src="assets/img/stadium-night.webp" alt="A floodlit cricket stadium at night">
+  <div class="scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow">International tours</span>
+    <h1 style="margin-top:18px">The world is our training ground.</h1>
+    <p>Every year, our squads leave Dubai and go where the game lives. Touring sides play competitive cricket abroad, and our players spend time training inside some of the best academies in the world. It changes how they play, and who they are.</p>
+    <div class="tour-chips">
+      <span class="chip"><i class="ti ti-plane-departure"></i> India 2022</span>
+      <span class="chip"><i class="ti ti-plane-departure"></i> India 2023</span>
+      <span class="chip hi"><i class="ti ti-plane-departure"></i> Next: UK &amp; Sri Lanka</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT A TOUR LOOKS LIKE -->
+<section class="section" data-screen-label="Tours / what">
+  <div class="wrap">
+    <div class="reveal" style="max-width:680px">
+      <span class="eyebrow">On tour</span>
+      <h2 style="margin-top:18px">More than matches. A residency in the game.</h2>
+      <p style="margin-top:16px">A tour is two things at once: a run of competitive cricket against local clubs and academies, and an immersion in how the world's best train, eat, recover, and think.</p>
+    </div>
+    <div class="tour-cards reveal">
+      <article class="tcard">
+        <div class="tic"><i class="ti ti-trophy"></i></div>
+        <h3>Competitive matches</h3>
+        <p>Touring squads play a full schedule against local academies and club sides. Different pitches, different conditions, different cricket. Players learn to adapt fast.</p>
+      </article>
+      <article class="tcard">
+        <div class="tic"><i class="ti ti-school"></i></div>
+        <h3>Academy residencies</h3>
+        <p>Every year our players spend significant time training inside leading academies around the world, working with their coaches, on their grounds, at their intensity.</p>
+      </article>
+      <article class="tcard">
+        <div class="tic"><i class="ti ti-users-group"></i></div>
+        <h3>Life on tour</h3>
+        <p>Living, travelling, and competing as a team builds the discipline and character that no net session can. Players come home different.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" style="padding-top:0" data-screen-label="Tours / gallery">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">From the road</span>
+      <h2 style="margin-top:18px;max-width:16ch">Scenes from our tours.</h2>
+    </div>
+    <div class="tgal reveal">
+      <figure class="tg tg-a"><img src="assets/img/tour-squad.webp" alt="The touring squad together in India"><figcaption><i class="ti ti-map-pin"></i> Touring squad · India</figcaption></figure>
+      <figure class="tg tg-b"><img src="assets/img/tour-ground.webp" alt="A cricket ground visited on tour"><figcaption><i class="ti ti-map-pin"></i> Match day venue</figcaption></figure>
+      <figure class="tg tg-c"><img src="assets/img/tour-watch.webp" alt="Players watching a match from the boundary on tour"><figcaption><i class="ti ti-map-pin"></i> Watching from the boundary</figcaption></figure>
+      <figure class="tg tg-d"><img src="assets/img/tour-pavilion.webp" alt="The pavilion at a host ground"><figcaption><i class="ti ti-map-pin"></i> Host ground &amp; pavilion</figcaption></figure>
+      <figure class="tg tg-e"><img src="assets/img/tour-stay.webp" alt="The team accommodation on tour"><figcaption><i class="ti ti-map-pin"></i> The team stay</figcaption></figure>
+      <figure class="tg tg-f"><img src="assets/img/visit-crowd.webp" alt="Players gathered at an academy visit"><figcaption><i class="ti ti-map-pin"></i> Academy visit</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section timeline" data-screen-label="Tours / timeline">
+  <div class="wrap">
+    <div class="reveal" style="max-width:660px">
+      <span class="eyebrow">Every year</span>
+      <h2 style="margin-top:18px">A tour a year. That's the rhythm.</h2>
+      <p style="margin-top:16px">Touring isn't a one-off treat at this academy. It's part of the development pathway, and it happens every year.</p>
+    </div>
+    <div class="tl-row reveal">
+      <div class="tl">
+        <div class="yr">2022</div>
+        <div class="dest">India</div>
+        <p>Our first international tour. Matches and training across Indian academies and grounds.</p>
+      </div>
+      <div class="tl">
+        <div class="yr">2023</div>
+        <div class="dest">India</div>
+        <p>Back again: a bigger squad, a fuller fixture list, and training blocks inside top academies.</p>
+      </div>
+      <div class="tl next">
+        <div class="yr">Next</div>
+        <div class="dest">UK &amp; Sri Lanka</div>
+        <p>Two cricketing cultures in one cycle: English conditions and the island that lives the game.</p>
+      </div>
+      <div class="tl">
+        <div class="yr">Yearly</div>
+        <div class="dest">World-class academies</div>
+        <p>Alongside tours, our players spend dedicated time each year inside leading academies around the world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO TOURS -->
+<section class="section" data-screen-label="Tours / who">
+  <div class="wrap">
+    <div class="resi reveal">
+      <div>
+        <span class="eyebrow">Who gets to go</span>
+        <h2 style="margin:18px 0 20px">Earned in the nets, worn on the plane.</h2>
+        <p>Touring squads are selected from our age-group teams, U10 through U19. Selection looks at performance, attitude, and training discipline across the season. If you're putting in the work in Dubai, the world opens up.</p>
+        <ul class="resi-points">
+          <li><i class="ti ti-check"></i> Selection from our ten age-group squads</li>
+          <li><i class="ti ti-check"></i> Coaches travel with every touring side</li>
+          <li><i class="ti ti-check"></i> Full match schedule and training programme abroad</li>
+          <li><i class="ti ti-check"></i> Families kept informed end to end</li>
+        </ul>
+        <a class="btn btn-primary btn-lg" style="margin-top:30px" href="Contact.html"><i class="ti ti-calendar-check"></i> Start with a free trial</a>
+      </div>
+      <div>
+        <div class="ph photo" style="background-image:url('assets/img/squad-coaches.webp');background-position:center 40%"><span class="ph-label"><i class="ti ti-photo"></i> Squad &amp; coaches</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="section sponsor" data-screen-label="Tours / sponsors">
+  <div class="wrap">
+    <div class="sponsor-grid reveal">
+      <div>
+        <span class="eyebrow">Tour partners</span>
+        <h2 style="margin:18px 0 20px">Put your name on the journey.</h2>
+        <p style="margin-bottom:16px">International tours are a serious undertaking: flights, grounds, kit, and accommodation for an entire squad and its coaches. Our tour partners make it possible, and past sponsorship has kitted out the full touring team.</p>
+        <p>Partnering with a tour isn't charity. Your brand travels with the squad, on the kit and at every ground, in front of cricketing communities in the UAE and abroad.</p>
+        <a class="btn btn-secondary" style="margin-top:28px" href="Contact.html"><i class="ti ti-mail"></i> Become a tour partner</a>
+      </div>
+      <div>
+        <div class="ph photo" style="background-image:url('assets/img/tour-squad.webp');background-position:center 30%"><span class="ph-label"><i class="ti ti-photo"></i> The touring squad, kitted out</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" data-screen-label="Tours / cta">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div style="position:relative;z-index:1;max-width:620px">
+        <span class="eyebrow">Get started</span>
+        <h2 style="margin:18px 0 18px">The pathway to the plane starts here.</h2>
+        <p style="margin-bottom:32px;font-size:18px">Join the academy, earn your place in a squad, and the next tour could have your name on it. Book a free 60-minute trial session to begin.</p>
+        <a class="btn btn-gold btn-lg" href="Contact.html"><i class="ti ti-calendar-check"></i> Book a free trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" data-screen-label="Tours / footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col">
+        <a class="logo" href="Cricketers Academy.html">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="16" cy="16" r="13" fill="#D4F23A"></circle>
+            <path d="M11 4.6C13.1 9 13.9 12.4 13.9 16S13.1 23 11 27.4" stroke="#0E0E10" stroke-width="1.5" stroke-linecap="round"></path>
+            <g stroke="#0E0E10" stroke-width="1.2" stroke-linecap="round">
+              <path d="M12.1 7.4l2.4-.7"></path><path d="M12.9 11l2.5-.5"></path><path d="M13.1 14.8l2.6-.3"></path>
+              <path d="M13.1 18.2l2.6.3"></path><path d="M12.8 22l2.5.6"></path><path d="M12.1 25.5l2.4.8"></path>
+            </g>
+          </svg>
+          <span class="logo-text"><span class="logo-main">Cricketers Academy<span class="dot">.</span></span><span class="logo-sub">by Tellicherry Cricket Club</span></span>
+        </a>
+        <p class="footer-blurb">Dubai's cricket academy. Structured, accountable, curriculum-driven coaching for boys and girls aged 6 to 20.</p>
+        <a class="footer-cta" href="Contact.html">Book a free trial</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Programs.html">Programs</a></li>
+          <li><a href="Coaches.html">Coaches</a></li>
+          <li><a href="Tours.html">International Tours</a></li>
+          <li><a href="About.html">About us</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="Programs.html#foundation">Foundation (6–9)</a></li>
+          <li><a href="Programs.html#squads">Age-Group Squads</a></li>
+          <li><a href="Programs.html#girls">Girls' Cricket</a></li>
+          <li><a href="Contact.html">Free trial session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <ul>
+          <li>Shabab Al Ahli Club, Al Nahda, Dubai</li>
+          <li><a href="tel:+971505657811">+971 50 5657811</a></li>
+          <li><a href="mailto:tellicherry.cricket@gmail.com">tellicherry.cricket@gmail.com</a></li>
+          <li><a href="https://instagram.com/tellicherry_cricket_academy" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px"><i class="ti ti-brand-instagram"></i> @tellicherry_cricket_academy</a></li>
+          <li>Open daily except Mondays</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Cricketers Academy. All rights reserved.</span>
+      <span>Tellicherry Cricket Club · Dubai</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

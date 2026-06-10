@@ -1,82 +1,70 @@
 # Cricketers Academy
 
-A cinematic, scroll-driven storytelling site for **Cricketers Academy** (by Tellicherry
-Cricket Club), Dubai. Built from the Claude Design handoff bundle and reimagined as an
-immersive single-page story.
+The website of **Cricketers Academy** (by Tellicherry Cricket Club), Dubai — a top-4 UAE
+cricket academy based at Shabab Al Ahli Stadium, Al Nahda. Light ProCoach-style design
+system: General Sans, bright yellow-lime accent (`#D4F23A`), neutral off-white, near-black
+feature bands, real academy photography throughout.
 
-## The experience
+## Pages
 
-The home page (`Cricketers Academy.html`) is told as **eight chapters**. As you scroll,
-each chapter animates in as its own cinematic scene and the painted background shifts
-through a fluid sequence of colours:
+| Page | Contents |
+|------|----------|
+| `Cricketers Academy.html` | Home — full-bleed photo hero, the difference, programs, U10–U19 team record, international tours band, getting started, photo band, testimonial, CTA |
+| `Programs.html` | Foundation (6–9) / Age-Group Squads (U10–U19, with UAE-circuit standings) / Girls' Cricket — tabbed |
+| `Coaches.html` | Head coach **Ajith Weerakkody** (Sri Lanka international, ICC Global Level 3) — full profile, playing & coaching career, the 13-strong coaching team, standards |
+| `Tours.html` | **International tours** — annual tours (India 2022 & 2023; UK & Sri Lanka next), academy residencies abroad, tour gallery, selection, tour partners |
+| `About.html` | Club history (est. late 1980s), Dubai Cricket Council registration, ECB & India associations, role-model visits, philosophy, the Shabab Al Ahli facility |
+| `Contact.html` | Validated enquiry form (incl. tours & sponsorship), contact details, map placeholder |
+| `index.html` | Redirect to the home page so `/` works when served |
 
-| # | Chapter | Theme |
-|---|---------|-------|
-| 00 | The opening (hero) | charcoal + lime |
-| 01 | The difference | deep teal-green |
-| 02 | The pathway (programs) | warm olive |
-| 03 | On the field (teams & record) | near-black, lime peak |
-| 04 | The journey (how it works) | warm stone |
-| 05 | Inside the academy (gallery) | cool ink |
-| 06 | Voices (testimonial) | deep aubergine |
-| 07 | The invitation (trial CTA) | green-black |
+## How the home page works
 
-### How it's built
+- **Three.js** (`assets/story.js`) paints a subtle, cursor-reactive textured backdrop whose
+  colours follow the active section (light sections vs dark photographic bands).
+- **GSAP + ScrollTrigger** reveal sections on scroll and drive photo parallax.
+- **Lenis** provides smooth scrolling, wired into the GSAP ticker.
+- **Splitting.js** brings the hero headline in letter by letter on load.
+- Degrades gracefully: CSS-gradient fallback without WebGL, fully static under
+  `prefers-reduced-motion`, and content stays visible if JS or a CDN fails.
 
-- **Three.js** — a full-screen GLSL shader paints a flowing, marbled texture that
-  **reacts to the cursor**: the paint flows toward the pointer and a soft accent light
-  follows it. The two shader colours are tweened per chapter, which is what produces the
-  fluid colour transitions.
-- **GSAP + ScrollTrigger** — every chapter animates in as a cinematic scene (staggered
-  reveals, split-text titles, photo parallax), and per-chapter triggers drive the
-  background colour changes and the side chapter rail.
-- **Lenis** — buttery smooth scrolling, wired into the GSAP ticker so ScrollTrigger and
-  the WebGL render share a single clock.
-- **Splitting.js** — the hero title arrives **letter by letter** on load (and chapter
-  titles split into words that rise into place on scroll-in).
-
-### Graceful degradation
-
-- **No WebGL?** The background falls back to an animated CSS gradient that still shifts
-  colour per chapter.
-- **`prefers-reduced-motion`?** Smooth scroll, the shader, and the reveal animations are
-  all disabled; all content renders immediately and statically.
-- **No JavaScript / a CDN fails?** An inline guard keeps every section fully visible
-  (the hidden "ready to animate" states are only applied when motion + JS are available).
+Inner pages are plain HTML/CSS with light interactions (`assets/site.js`: tabs, accordion,
+form validation, reveal-on-scroll).
 
 ## Project structure
 
 ```
-Cricketers Academy.html   ← the storytelling home (Three.js + GSAP + Lenis + Splitting)
-index.html                ← redirect to the home (so "/" works when served)
-Programs.html             ← inner pages (carried over from the design, shared site.css/js)
-Coaches.html
-About.html
-Contact.html
+Cricketers Academy.html      ← home
+Programs.html / Coaches.html / Tours.html / About.html / Contact.html
+index.html                   ← redirect to home
 assets/
-  site.css                ← shared design tokens + base components (lime / black / cream)
-  site.js                 ← interactions for the inner pages (tabs, accordion, carousel, form)
-  story.css               ← storytelling-specific styles for the home
-  story.js                ← Three.js / GSAP / Lenis / Splitting orchestration
-  img/ca1–ca4.webp        ← academy photography
+  site.css                   ← design tokens + shared components
+  site.js                    ← inner-page interactions
+  story.css                  ← home-specific styles
+  story.js                   ← Three.js / GSAP / Lenis / Splitting orchestration
+  img/                       ← academy photography (training, squads, tours, coach,
+                               club crest, stadium) — sourced from the club's portfolio
 ```
 
 ## Running it
 
-It's a static site — no build step. Serve the folder over HTTP (the CDN libraries and
-relative asset paths need a real origin, not `file://`):
+Static site, no build step. Serve over HTTP (CDN libraries + relative paths need a real
+origin, not `file://`):
 
 ```bash
-python3 -m http.server 8000
-# then open http://localhost:8000/
+python3 -m http.server 8000   # then open http://localhost:8000/
 ```
 
-External libraries are loaded from CDN (Three r158, GSAP 3.12.5 + ScrollTrigger, Lenis
-1.0.42, Splitting 1.0.6, Tabler Icons), so an internet connection is required.
+External libraries via CDN: Three r158, GSAP 3.12.5 + ScrollTrigger, Lenis 1.0.42,
+Splitting 1.0.6, Tabler Icons, General Sans (Fontshare).
 
-## Notes
+## Facts on the site
 
-Copy, photography, palette, and the academy's real details (ages 6–20, ~275 players,
-ten U10–U19 squads, top-4 UAE academy, central Dubai, sessions daily except Mondays) come
-from the design handoff. Bracketed items in the inner pages (founding year, address,
-phone, coach names) remain placeholders pending real information.
+From the club's portfolio and coach profile: established late 1980s; registered under the
+Dubai Cricket Council; works with the Emirates Cricket Board and Indian state associations;
+275+ players (≈250 boys, ≈25 girls) aged 6–20; ten squads U10–U19; ~30 competitive matches
+a season; 13 coaches; sessions daily except Mondays; international tours every year
+(India 2022 & 2023, UK & Sri Lanka next) plus annual residencies at leading academies
+worldwide; head coach Ajith Weerakkody (Sri Lanka 1994 Austral-Asia Cup, ICC Global L3).
+
+Contact: Shabab Al Ahli Club, Al Nahda, Dubai · +971 50 5657811 ·
+tellicherry.cricket@gmail.com · Instagram @tellicherry_cricket_academy

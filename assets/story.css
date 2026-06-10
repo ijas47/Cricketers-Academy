@@ -210,6 +210,38 @@ html.lenis, html.lenis body { height: auto; }
 .blend-band .kicker { color: var(--gold); }
 @media (max-width: 720px){ .blend-title { white-space: normal; font-size: clamp(40px, 13vw, 70px); } }
 
+/* International tours — dark photographic band with split content */
+.tours-band { isolation: isolate; min-height: 92vh; display: flex; align-items: center; }
+.tours-band::before { display: none; }
+.tours-photo { position: absolute; inset: -6% 0; width: 100%; height: 112%; object-fit: cover; object-position: center 65%; z-index: 0; filter: brightness(.8); will-change: transform; }
+.tours-overlay { position: absolute; inset: 0; z-index: 1; background:
+  linear-gradient(90deg, rgba(7,8,11,.88) 0%, rgba(7,8,11,.62) 48%, rgba(7,8,11,.3) 100%),
+  linear-gradient(0deg, rgba(7,8,11,.55) 0%, transparent 45%); }
+.tours-content { position: relative; z-index: 2; }
+.tours-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 64px; align-items: center; }
+.tours-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.tchip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 100px;
+  border: 1px solid rgba(255,255,255,.24); color: #fff; font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: .08em; text-transform: uppercase; background: rgba(255,255,255,.07); backdrop-filter: blur(6px); }
+.tchip i { color: var(--gold); font-size: 15px; }
+.tchip.hi { background: var(--gold); border-color: var(--gold); color: #0E0E10; }
+.tchip.hi i { color: #0E0E10; }
+.tours-media { position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4/3.4; box-shadow: 0 34px 80px -36px rgba(0,0,0,.8); }
+.tours-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tours-tag { position: absolute; left: 14px; bottom: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 100px; background: rgba(14,14,16,.7); backdrop-filter: blur(6px);
+  color: #fff; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.tours-tag i { color: var(--gold); font-size: 14px; }
+@media (max-width: 900px){ .tours-grid { grid-template-columns: 1fr; gap: 34px; } }
+
+/* photo-backed dark band (final CTA) */
+.photo-band { isolation: isolate; }
+.photo-band::before { display: none; }
+.band-photo { position: absolute; inset: -6% 0; width: 100%; height: 112%; object-fit: cover; z-index: 0; will-change: transform; }
+.band-overlay { position: absolute; inset: 0; z-index: 1; background:
+  radial-gradient(85% 80% at 50% 55%, rgba(8,8,10,.78), rgba(8,8,10,.5) 70%, rgba(8,8,10,.35) 100%); }
+.photo-band .swrap { position: relative; z-index: 2; }
+
 /* Testimonial */
 #ch-voices .swrap { max-width: 920px; text-align: center; }
 .big-quote { font-family: var(--font-display); font-weight: 500; letter-spacing: -.01em; font-size: clamp(26px, 3.6vw, 46px); line-height: 1.28; color: var(--ink); }
